@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body{
+    font-family: Arial;
+}
+
+.main_navbar{
+    background-color: #012060;
+
+    --img1: scale(1);
+    --img2: scale(0);
+}
+/*Si main_navbar tiene un hijo con la clase main_menu va a revisar (target) si ha sido seleccionada*/
+.main_navbar:has(.navbar_menu:target){
+    --img1: scale(0);
+    --img2: scale(1);
+}
+
+.main_navbar_container{
+    width: 90%;
+    margin: 0 auto; /*centramos horizontalmete el contenedor*/
+    height: 200px;
+
+    display: grid;
+    grid-template-columns: max-content max-content; /*Dos columnas de maximo contenido*/
+    grid-template-areas: "logo toggle"; /*Asignamos los nombres de las areas de columnas*/
+    justify-content: space-between; /*Contenido se va a las orillas*/
+    align-items: center; /*Contenido centrado*/
+
+    overflow: hidden; /*Todo lo que sale se esconde*/
+}
+
+.navbar_logo{
+    background-color: #012060; /*Fondo de logo ar blanco*/
+    grid-area: logo; /*Le asignamos el area logo*/
+}
+
+.nav_menu{
+    grid-area: toggle; /*Le asignamos el area toggle*/
+    position: relative; 
+    z-index: 10;
+
+    transform: var(--img1);
+}
+
+.nav_menu_second{
+    transform: var(--img2);
+}
+
+.main_nav_icon{
+    width: 30px; /*Tamaño de las barras del menu y 'x'*/
+    display: block;
+}
+
+.navbar_menu{
+    position: absolute;
+    background-color: #012060;
+    width: 75%;
+    max-width: 300px;
+    right: 0; /*El menu se despliega a la derecha en 0*/
+    top: 0;   /*El menu se despliega de arriba en 0*/
+    bottom: 0; /*El menu se despliega hasta abajo en 0*/
+
+    padding: 1rem; /*Le doy padding para los elementos de la lista del menu principal*/
+    display: grid;
+    align-content: center;
+    gap: 1rem;
+}
+
+.navbar_item{
+    list-style: none;
+}
+
+.navbar_links{
+    color: white; /*color de leteas de la lista en blanco*/
+    padding: 1em .7em; /*damos un padding de 1 arriba y abajo y .7 a los costados*/
+    text-decoration: none; /*quitamos la decoracion de enlase (subrayado)*/
+
+    display: flex; /*poner un elemento de lado del otro*/
+    align-items: center;
+    gap: .6rem;
+
+    position: relative;
+}
+
+.navbar_item:has( :checked){ /*Ponemos la condicion de que si un item del menu ha sido markado con check del checkbox*/
+    --rows: 1fr; /* creamos custom property "rows" para asignarle valor de 1 fracción para que se muestre el sub menu*/
+    --rotate: rotate(180deg); /*Cada que se seleccione el checkbox va a rotar la flecha (de apuntar hacia abajo a apuntar hacia arriba*/
+}
+
+.navbar_icons{
+    max-width: 50px; /*Le damos el tamaño de los iconos del menú principal*/
+    max-height: 50px; /*Le damos el tamaño de los iconos del menú principal*/
+
+}
+
+.dropdown_arrow{
+    max-width: 15px; /*Le damos el tamaño de los iconos de submenus del menú principal*/
+    max-height: 15px; /*Le damos el tamaño de los iconos de submenus del menú principal*/
+}
+
+.dropdown_check{
+    position: absolute;
+    width: 100%;
+    height: 100%; /*Para que abarque toda la casilla del link(manuf, mrkt seg, prod, distri*/
+    opacity: 0; /*Para ocultar el checkbox*/
+    cursor: pointer;
+}
+
+.dropdown_arrow{
+    margin-left: auto; /*Pasamos flecha de sub menu hacia la derecha*/
+    transform: var(--rotate, 0); /*Creamos la custom property "rotate" para hacer que rote 180° la flecha del sub menu*/
+    transition: .2s transform;
+}
+
+.dropdown_content{
+    display: grid;
+    grid-template-rows: var(--rows, 0fr); /* Creamos custom property "rows" y si no encuentra la custom property Ocultamos la sub lista del menu principal*/
+    transition: .3s grid-template-rows;
+}
+
+.dropdown_sub_main_menu{
+    overflow: hidden; /*todo lo que salga de este elemento se esconda*/
+    /*background-color: rgb(38, 40, 143); /*asignamos color a el contenedor de la sub lista dropdown*/
+}
+
+.dropdown_sub_main_list{
+    width: 85%;
+    list-style: none; /*le quitamos el estilo de lista*/
+    margin-left: auto; /*manda a la derecha los items*/
+}
+
+.dropdown_sub_item{
+    padding: .5em 0;
+    display: block;
+    color: #FFFFFF;
+    text-decoration: none; /*quitamos la decoracion de los enlaces (subrayado)*/
+
+}
