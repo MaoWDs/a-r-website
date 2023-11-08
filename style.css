@@ -18,18 +18,20 @@ body{
 .main_navbar:has(.navbar_menu:target){
     --img1: scale(0);
     --img2: scale(1);
+
+    --clip: inset(0 0 0 0); /*Se muestra el menú si detecta que di click a el icono de las barras del menu principal*/
 }
 
 .main_navbar_container{
-    width: 90%;
+    width: 95%;
     margin: 0 auto; /*centramos horizontalmete el contenedor*/
-    height: 200px;
+    height: 100px;
 
     display: grid;
     grid-template-columns: max-content max-content; /*Dos columnas de maximo contenido*/
     grid-template-areas: "logo toggle"; /*Asignamos los nombres de las areas de columnas*/
     justify-content: space-between; /*Contenido se va a las orillas*/
-    align-items: center; /*Contenido centrado*/
+    align-items: center; /*Contenido centrado center*/
 
     overflow: hidden; /*Todo lo que sale se esconde*/
 }
@@ -57,18 +59,23 @@ body{
 }
 
 .navbar_menu{
-    position: absolute;
+    position: fixed; /*absolute para que se quede estatico y se quite si bajo mucho en la pagina, con fixed se queda fijo aun que baje scroll en la pagina*/
     background-color: #012060;
-    width: 75%;
+    width: 100%; /*75%*/
     max-width: 300px;
     right: 0; /*El menu se despliega a la derecha en 0*/
     top: 0;   /*El menu se despliega de arriba en 0*/
     bottom: 0; /*El menu se despliega hasta abajo en 0*/
-
     padding: 1rem; /*Le doy padding para los elementos de la lista del menu principal*/
+
     display: grid;
     align-content: center;
-    gap: 1rem;
+    gap: .2rem;/*Le doy un espacio entre los elementos de la lista del menu principal*/
+    
+    overflow-y: auto; /*le ponemos scroll a el menú ya que es mas grande de lo que puede mostrar en la pagina, auto tambien funciona*/
+
+    clip-path: var(--clip, inset(0 0 100% 100%)); /*Creo variable --clip para que si no se encuentra la variable toma el valor por defecto (oculto el menú)*/
+    transition: clip-path .5s;
 }
 
 .navbar_item{
@@ -85,11 +92,14 @@ body{
     gap: .6rem;
 
     position: relative;
+    background-color: var(--bg, transparent); /*le asigno el color y que sea transparente cuando selecciono elemento de main menu*/
+    border-radius: 6px; /*redondeo los cuadros de seleccion en main menu*/
 }
 
 .navbar_item:has( :checked){ /*Ponemos la condicion de que si un item del menu ha sido markado con check del checkbox*/
     --rows: 1fr; /* creamos custom property "rows" para asignarle valor de 1 fracción para que se muestre el sub menu*/
     --rotate: rotate(180deg); /*Cada que se seleccione el checkbox va a rotar la flecha (de apuntar hacia abajo a apuntar hacia arriba*/
+    --bg: #ffffff58; /*el background color para cuando se selecciona un elemento de el main menu (Blanco transparente)*/
 }
 
 .navbar_icons{
@@ -99,15 +109,16 @@ body{
 }
 
 .dropdown_arrow{
-    max-width: 15px; /*Le damos el tamaño de los iconos de submenus del menú principal*/
-    max-height: 15px; /*Le damos el tamaño de los iconos de submenus del menú principal*/
+    max-width: 20px; /*Le damos el tamaño de los iconos de submenus del menú principal*/
+    max-height: 20px; /*Le damos el tamaño de los iconos de submenus del menú principal*/
 }
 
 .dropdown_check{
     position: absolute;
-    width: 100%;
-    height: 100%; /*Para que abarque toda la casilla del link(manuf, mrkt seg, prod, distri*/
-    opacity: 0; /*Para ocultar el checkbox*/
+    margin-left: 180px; /*Está a 180 px de la izquierda a la derecha el checkbox*/
+    width: 50%;
+    height: 50%; /*100% Para que abarque toda la casilla del link(manuf, mrkt seg, prod, distri*/
+    opacity: 0; /*Para ocultar el checkbox 0 para que no se vea*/
     cursor: pointer;
 }
 
@@ -139,5 +150,172 @@ body{
     display: block;
     color: #FFFFFF;
     text-decoration: none; /*quitamos la decoracion de los enlaces (subrayado)*/
-
 }
+
+.home_img {
+    position: relative;
+
+  
+  .main_image {
+    min-width: 100%; /* Cover the entire width of the page */
+    max-height: 600px;
+  }
+  
+  .main_logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%); /* Center the logo vertically and horizontally */
+    z-index: 1; /* Place the logo in front of the main_image */
+    background-color: #FFFFFF;
+    opacity: .5;
+    border-radius: 25%;
+  }
+
+  .main_ar {
+    position: absolute;
+    top: 10px; /* Adjust as needed to position it at the top of the main_image */
+    margin-top: 15px;
+    left: 50%;
+    transform: translateX(-50%); /* Center the text horizontally */
+    z-index: 1; /* Place the text in front of the main_image */
+    text-align: center;
+    max-width: 1000px;
+    color: #FFFFFF; /* Text color */
+    background-color: none;
+    opacity: .7;
+    text-decoration-color: #012060;
+    font-size: 25px;
+  }
+  
+  .main_slog {
+    position: absolute;
+    bottom: 10px; /* Adjust as needed to position it at the bottom of the main_image */
+    margin-bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%); /* Center the text horizontally */
+    z-index: 1; /* Place the text in front of the main_image */
+    text-align: center;
+    color: #FFFFFF; /* Text color */
+    background-color: none;
+    opacity: .7;
+    text-decoration-color: #012060;
+    font-size: 25px;
+  }
+}
+.main_body_container {
+    display: grid;
+    grid-template-columns: 3fr 2fr; /* Two equal-width columns */
+    grid-template-rows: 40px auto 40px auto 40px auto 40px auto; /* 8 rows 40px and 200px height */
+    gap: 10px; /* Adjust the gap between grid items */
+  
+    /* Styling for grid items */
+    .main_title {
+      grid-column: span 2; /* Span across both columns */
+      background: linear-gradient(to right, #012060, #fff); /* Background color for title rows */
+      color: #fff; /* Text color for titles */
+      padding: 5px;
+      text-align: left;
+      font-size: 25px;
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+  
+    .main_text {
+      grid-column: span 1; /* Span one column */
+      padding: 10px;
+      margin-left: 30px;
+      margin-right: 20px;
+      font-size: 18px;
+    }
+  
+    .main_img_body {
+      grid-column: span 1; /* Span one column */
+      /*width: 100%; /* Adjust image width as needed */
+      max-height: 180px;
+      align-items: center;
+      margin-left: 25px;
+    }
+  }
+
+.main_search_button{
+    display: block;
+    color: #FFFFFF;
+    background-color: #012060;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.footer{
+    width: auto;
+    background-size: cover;
+    padding: 100px 0;
+}
+
+.footer_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: auto;
+    margin-top: 100px;
+    background-color: #012060;
+}
+
+.footer_item{
+    display: flex; /*se ajustan los items al tamaño de la pagina*/
+    flex-direction: column; /*ponemos los items del footer en columnas*/
+    padding: 10px; /*distancia entre columnas*/
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.footer_item .footer_logo img{
+    width: 75px; /*tamaño de imagen*/
+    margin-left: 130px;
+}
+
+.footer_item .footer_terms{
+    max-width: 350px; /*tamaño max de los terms*/
+    margin-top: 20px; /*distancia entre logo y terms*/
+    font-weight: 500; /*letra de terms mas gruesa*/
+    color: #949494; /*color gris de texto terms*/
+    font-size: 13px;
+}
+
+.footer_item h2{
+    margin-bottom: 13px; /*separamos encabezado de opciones*/
+}
+
+.footer_item h2 a{
+    text-decoration: none; /*quitamos decoracion de link al texto de encabezados*/
+    color: #c3c3c3;
+    font-weight: 700; /*mas grueso*/
+    font-size: 15px;
+}
+
+.footer_item a{
+    margin-top: 7px; /*margen a las opciones de footer*/
+    text-decoration: none;/*quitamos decoracion de link*/
+    color: #949494;
+    font-weight: 500; /*mas grueso*/
+    font-size: 13px;
+}
+
+.footer_item a:hover{
+    opacity: 0.8; /*se opaca texto al pasar cursor en items del footer*/
+}
+
+.box_copyright{
+    max-width: 100%;
+    margin: auto;
+    background-color: #012060;
+    text-align: center;
+    color: #949494;
+    padding: 20px 0px;
+}
+
