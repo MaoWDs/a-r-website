@@ -1,51 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-            
-<head>
 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ammon & Rizos - Manufacturers</title>
-
+    <title>Ammon & Rizos</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-            
+
 <body>
+  <!-- Main Nav Bar Section -->
+    <nav class="main_navbar">
+      <div class="main_navbar_container">
+        <a href="index.html" class="navbar_logo"><img src="./Media/ar logo fondo azul.png"/></a>
+        
+        <a href="#main_menu" class="nav_menu">
+          <img src="./assets/menu.svg" class="main_nav_icon">
+        </a>
+        
+        <a href="#" class="nav_menu nav_menu_second">
+          <img src="./assets/close.svg" class="main_nav_icon">
+        </a>
 
-<!-- Nav Bar Section -->
-<nav class="navbar">
-    <div class="navbar_container">
-      <a href="index.html" id="navbar_logo"><img src="./Media/ar logo azul sin fondo.png"/></a>`
-      <div class="navbar_toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <ul class="navbar_menu" id="main_menu">
+          <!-- Home Main Menu -->
+          <li class="navbar_item">
+            <a href="index.html" class="navbar_links">
+              <img src="./assets/home.svg" class="navbar_icons">
+              <span class="navbar_span">HOME</span>
+            </a>
+          </li>
+          <!-- About Main Menu -->
+          <li class="navbar_item">
+            <a href="about.html" class="navbar_links">
+              <img src="./assets/about.svg" class="navbar_icons">
+              <span class="navbar_span">ABOUT</span>
+            </a>
+          </li>
+          <!-- Dropdown Manufacturers (Missing links for country sub categories) -->
+          <li class="navbar_item"> 
+            <a href="manufacturers.html" class="navbar_links">
+              <img src="./assets/manufacturers.svg" class="navbar_icons">
+              <span class="navbar_span">MANUFACTURERS</span>
+              <img src="./assets/down.svg" class="dropdown_arrow">
+
+              <input type="checkbox" class="dropdown_check">
+            </a>
+
+            <div class="dropdown_content">
+
+              <ul class="dropdown_sub_main_menu">
+
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">USA</a> 
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Mexico</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Brazil</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!-- Dropdown Market Segments (Missing links for Market Segments categories) -->
+          <li class="navbar_item">
+            <a href="market-segments.html" class="navbar_links">
+              <img src="./assets/market segment.svg" class="navbar_icons">
+              <span class="navbar_span">MARKET SEGMENTS</span>
+              <img src="./assets/down.svg" class="dropdown_arrow">
+
+              <input type="checkbox" class="dropdown_check">
+            </a>
+
+            <div class="dropdown_content">
+
+              <ul class="dropdown_sub_main_menu">
+
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Automotive & Transportation</a> 
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Industrial</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Energy</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Lighting</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Communications</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Healthcare</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Internet of Things</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Oil & Gas</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Defense & Aerospace</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!-- Dropdown Products (Missing links for Applications categories) -->
+          <li class="navbar_item">
+            <a href="products.html" class="navbar_links">
+              <img src="./assets/products.svg" class="navbar_icons">
+              <span class="navbar_span">PRODUCTS</span>
+              <img src="./assets/down.svg" class="dropdown_arrow">
+
+              <input type="checkbox" class="dropdown_check">
+            </a>
+
+            <div class="dropdown_content">
+
+              <ul class="dropdown_sub_main_menu">
+
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Audio</a> 
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Automotive</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Broadcast</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Communications</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Computing</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Horticulture</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Industrial</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Instrumentation</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Lighting</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Medical</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Motor Control</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Security</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!-- Dropdown Distribuitors (Missing links for country sub categories) -->
+          <li class="navbar_item">
+            <a href="distributors.html" class="navbar_links">
+              <img src="./assets/distribuitors.svg" class="navbar_icons">
+              <span class="navbar_span">DISTRIBUTORS</span>
+              <img src="./assets/down.svg" class="dropdown_arrow">
+
+              <input type="checkbox" class="dropdown_check">
+            </a>
+
+            <div class="dropdown_content">
+
+              <ul class="dropdown_sub_main_menu">
+
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">USA</a> 
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Mexico</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Brazil</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!-- Contact Us Main Menu -->
+          <li class="navbar_item">
+            <a href="contact.html" class="navbar_links">
+              <img src="./assets/contact.svg" class="navbar_icons">
+              <span class="navbar_span">CONTACT US</span>
+            </a>
+          </li>
+        </ul>
       </div>
-      <ul class="navbar_menu">
-        <li class="navbar_item">
-          <a href="index.html" class="navbar_links">HOME</a>
-        </li>
-        <li class="navbar_item">
-          <a href="about.html" class="navbar_links">ABOUT</a>
-        </li>
-        <li class="navbar_item">
-          <a href="manufacturers.html" class="navbar_links">MANUFACTURERS</a>
-        </li>
-        <li class="navbar_item">
-          <a href="market-segments.html" class="navbar_links">MARKET SEGMENTS</a>
-        </li>
-        <li class="navbar_item">
-          <a href="products.html" class="navbar_links">PRODUCTS</a>
-        </li>
-        <li class="navbar_item">
-          <a href="distributors.html" class="navbar_links">DISTRIBUTORS</a>
-        </li>
-        <li class="navbar_btn">
-          <a href="contact.html" class="button">Contact Us</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
+    </nav>
+  
+  <!-- Body Section -->
+  
   <h1>Our Principals</h1>
   <!-- Make a retractil menu of manufacturers for country (MX, USA, BR) -->
   <hr>
@@ -68,44 +221,66 @@
     <a href="products.html"><b>VACUUMSCHMELZE</b></a>
   </ul>
 
+  <!-- Footer Section -->
   <footer>
-    <p><a href="about.html">About Us</a><br>
-      <ul>
-        <li>Ammon & Rizos Overview</li>
-        <li>See What Drives Us</li>
-        <li>Locations</li>
-      </ul>
-    </p>
-    <p><a href="manufacturers.html">Manufacturers</a><br>
-      <ul>
-        <!-- Make a retractil menu of manufacturers of every country -->
-        <li>USA</li> 
-        <li>Mexico</li>
-        <li>Brazil</li>
-      </ul>
-    </p>
-    <p><a href="market-segments.html">Market Segments</a><br>
-      <ul>
-        <li>Automotive</li> 
-        <li>Energy</li>
-        <li>Lighting</li>
-        <li>Medical</li>
-        <li>Industrial</li>
-        <li>Internet of Things</li>
-        <li>Oil & Gas</li>
-      </ul>
-    </p>
-    <p><a href="contact.html">Contact Us</a><br>
-      <ul>
-        <li>Email Us:<br>info@ammonrizos.com</li>
-        <li>Call Us:
-          <br>US: +1 (972) 644-5591
-          <br>MX: +52 (33) 3641-9900
-          <br>BZ: +55 (22) 4688-1960
-        </li>
-      </ul>
-    </p>
+    <div class="footer_container">
+      <div class="footer_item">
+        <div class="footer_logo">
+          <img src="./Media/ar logo fondo azul.png"/>
+        </div>
+        <div class="footer_terms">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde ad eos ipsam molestias odit pariatur, 
+            dignissimos sit dolor, rerum consequatur, fugiat vel suscipit sint similique est nam neque quam at.
+          </p>
+        </div>
+      </div>
+      <div class="footer_item">
+        <h2>
+          <a href="about.html">ABOUT US</a>
+        </h2>
+        <a href="#">Ammon & Rizos Overview</a>
+        <a href="#">See What Drives Us</a>
+        <a href="#">Locations</a>
+      </div>
+      <div class="footer_item">
+        <h2>
+          <a href="manufacturers.html">MANUFACTURERS</a>
+        </h2>
+        <a href="#">LOCATIONS:</a>
+        <a href="#">USA</a>
+        <a href="#">Mexico</a>
+        <a href="#">Brazil</a>
+      </div>
+      <div class="footer_item">
+        <h2>
+          <a href="market-segments.html">MARKET SEGMENTS</a>
+        </h2>
+        <a href="#">Automotive</a>
+        <a href="#">Energy</a>
+        <a href="#">Industrial</a>
+        <a href="#">Lighting</a>
+        <a href="#">Medical</a>
+        <a href="#">Internet of Things</a>
+        <a href="#">Oil & Gas</a>
+      </div>
+      <div class="footer_item">
+        <h2>
+          <a href="contact.html">CONTACT US</a>
+        </h2>
+        <a href="contact.html">Email Us:</a>
+        <a href="#">info@ammonrizos.com</a>
+        <a href="contact.html">Call Us:</a>
+        <a href="#">US: +1 (972) 644-5591</a>
+        <a href="#">MX: +52 (33) 3641-9900</a>
+        <a href="#">BZ: +55 (22) 4688-1960</a>
+      </div>
+    </div>
+    <div class="box_copyright">
+      <p>All Rights Reserved © 2023 <b>Ammon & Rizos</b>.</p>
+    </div>
   </footer>
+
 </body>
 
 </html>
