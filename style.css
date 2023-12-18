@@ -505,6 +505,11 @@ body{
     color: #012060;
 }
 
+#principal_accordion li label img{
+    max-height: 70px;
+    max-width: 100px;
+}
+
 #principal_accordion li label span{
     transform: rotate(90deg);
     font-size: 22px;
