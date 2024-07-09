@@ -381,6 +381,7 @@ header{
     grid-template-columns: 3fr 2fr; /* Two equal-width columns */
     grid-template-rows: 40px auto 40px auto 40px auto 40px auto; /* 8 rows 40px and 200px height */
     gap: 10px; /* Adjust the gap between grid items */
+    width: 100%;
   
     /* Styling for grid items */
     .main_title {
@@ -429,11 +430,10 @@ header{
 .Alexander_Graham{
     display: block;
     margin-top: 10px;
-    padding-left: 50px;
     background: linear-gradient(to bottom, #FFFFFF, #868686);
     color: #012060;
     font-weight: 600;
-    padding-right: 50px;
+    width: 100%;
 }
 
 /* ------ About page section ------ */
@@ -441,31 +441,29 @@ header{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; /* Tree equal-width columns */
     gap: 10px; /* Adjust the gap between grid items */
+    margin-left: 20px;
+    margin-right: 20px;
 
     .about_title{
+        width: 100%;
         grid-column: span 3; /*aparece en 3 columnas*/
-        margin-left: 100px;
-        margin-top: 20px;
+        margin-top: 30px;
     }
     
     .about_main_text{
+        width: 100%;
         grid-column: span 2; /*aparece en 2 columnas*/
-        margin-left: 50px;
-        margin-right: 50px;
-        align-self: center;
     }
 
     .ar_team_img{
-        max-height: 350px; /*set max heigh for team image*/
-        align-self: center; /*centrer the image in the grid */
-        margin-right: 30px;
-        margin-bottom: 20px;
+        width: calc(100% - 60px); /* Calcula el ancho después de añadir los márgenes */
+        max-height: auto; /*set max heigh for team image*/
+        align-items: center;
+        min-width: 300px;
     }
 
     .about_text{
-        margin-left: 50px;
-        margin-right: 50px;
-        justify-content: center;
+        width: calc(100% - 60px); /* Calcula el ancho después de añadir los márgenes */
         grid-column: span 3;
     }
 }
@@ -604,7 +602,7 @@ header{
         rotate: 0deg;
     }
     .ar_team_img{
-        height: 250px; /*set max heigh for team image*/
+        min-width: 300px;
     }
 }
 
@@ -644,8 +642,7 @@ header{
 }
 
 #principal_accordion{
-    margin: 100px;
-    width: 90%;
+    width: 100%;
 }
 
 #principal_accordion li{
@@ -748,8 +745,7 @@ header{
 }
 
 #distributors_accordion{
-    margin: 100px;
-    width: 90%;
+    width: 100%;
 }
 
 #distributors_accordion li{
@@ -857,7 +853,10 @@ header{
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-template-rows: repeat(1fr);
     gap: 30px;
-    margin: 50px; /* 20px margin left and right */
+    margin-bottom: 30px;
+    margin-left: 20px;  /* Margen izquierdo */
+    margin-right: 20px; /* Margen derecho */
+    width: 100%;
 }
 
 .marketseg_grid li{
@@ -903,16 +902,19 @@ header{
     }
 }
 
+
 .contact_box{
     position: relative;
     display: grid;
-    grid-template-columns: 2fr 1.3fr;
-    grid-template-rows: 2.5fr 4fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
     grid-template-areas: 
-    "form info"
-    "form map";
+    "form"
+    "info"
+    "map";
     grid-gap: 20px;
     margin-top: 20px;
+    width: 100%;
 
     .contact{
         padding: 40px;
@@ -968,10 +970,11 @@ header{
             color: #FFF;
             border: none;
             font-size: 1.1em;
-            max-width: 200px;
+            max-width: 150px;
             font-weight: 500;
             cursor: pointer;
             padding: 14px 15px;
+            width: 100%;
         }
 
         .infoSelect {
@@ -980,7 +983,7 @@ header{
             flex-wrap: wrap;
             align-items: start;
           }
-          
+
           .infoSelect img {
             top: 50px;
             width: 40px; /* ajusta el tamaño de la imagen */
@@ -996,6 +999,7 @@ header{
             left: -5px; /* ajusta la posición del checkbox a la izquierda de la imagen */
             top: 10px; /* ajusta la posición del checkbox a la parte superior de la imagen */
             opacity: 0;
+            cursor: pointer;
             }
           
         
@@ -1012,11 +1016,11 @@ header{
                 left: 150px;
             }
         .infoBox h2{
-            margin-left: 50px;
+            margin-left: 0px;
         }
 
         .infoBox ul{
-            margin-left: -50px;
+            margin-left: 0px;
             margin-top: 20px;
         }
 
@@ -1028,15 +1032,18 @@ header{
         .phoneInfo{
             position: relative;
             margin-top: 15px;
-            margin-left: -50px;
+            margin-left: 0px;
         }
 
         .infoBox i{
             color: #012060;
         }
     }
-
-    #mapid { height: 500px; } /* Establece la altura del mapa */
+    
+    #mapid { 
+        height: 400px;
+        width: 100%;
+    }
 
     .inputBox ::placeholder{
         color: #999;
@@ -1052,6 +1059,53 @@ header{
 
     .map{
         grid-area: map;
+    }   
+}
+@media (min-width: 1040px) { /* Para tablets y pantallas más grandes */
+    .contact_box {
+        grid-template-columns: 2fr 1.3fr; /* Originalmente estaba así para pantallas más grandes */
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+        "form info"
+        "form map";
+        margin-left: 40px;  /* Margen izquierdo */
+        margin-right: 40px; /* Margen derecho */
+        width: calc(100% - 60px); /* Calcula el ancho después de añadir los márgenes */
     }
-    
+    .contact_box .formBox .row100 .inputBox input {
+        max-width: 200px; /* Restringe el tamaño del botón en pantallas más grandes */
+    }
+    .contact_box .infoBox h2, .contact_box .infoBox ul {
+        margin-left: 50px; /* Restaura el margen para pantallas más grandes */
+    }
+    .main_body_container{
+        margin-left: 40px;  /* Margen izquierdo */
+        margin-right: 40px; /* Margen derecho */
+        width: calc(100% - 60px); /* Calcula el ancho después de añadir los márgenes */
+    }
+    .Alexander_Graham{
+        margin-left: 40px;  /* Margen izquierdo */
+        margin-right: 40px; /* Margen derecho */
+        width: calc(100% - 60px); /* Calcula el ancho después de añadir los márgenes */
+    }
+    .about_body_container{
+        margin-left: 40px;  /* Margen izquierdo */
+        margin-right: 40px; /* Margen derecho */
+        width: calc(100% - 60px); /* Calcula el ancho después de añadir los márgenes */
+    }
+    #principal_accordion{
+        margin-left: 40px;  /* Margen izquierdo */
+        margin-right: 40px; /* Margen derecho */
+        width: calc(100% - 60px); /* Calcula el ancho después de añadir los márgenes */
+    }
+    #distributors_accordion{
+        margin-left: 40px;  /* Margen izquierdo */
+        margin-right: 40px; /* Margen derecho */
+        width: calc(100% - 60px); /* Calcula el ancho después de añadir los márgenes */
+    }
+    .marketseg_grid {
+        margin-left: 40px;  /* Margen izquierdo */
+        margin-right: 40px; /* Margen derecho */
+        width: calc(100% - 60px); /* Calcula el ancho después de añadir los márgenes */
+    }
 }

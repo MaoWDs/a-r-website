@@ -373,9 +373,10 @@
     <script>
       const checkboxes = document.querySelectorAll('.contactInfoCheck');
       const contactDivs = document.querySelectorAll('.infoBox > div');
-
+      const images = document.querySelectorAll('.infoSelect img'); // Asume que cada .contactInfoCheck está cerca de una img
+    
       contactDivs[0].style.display = 'block';
-
+    
       // Agrega un evento de cambio a cada checkbox
       checkboxes.forEach((checkbox, index) => {
         checkbox.addEventListener('change', () => {
@@ -383,28 +384,29 @@
           contactDivs.forEach((div) => {
             div.style.display = 'none';
           });
-
+    
           // Muestra el div de contacto correspondiente al checkbox seleccionado
           if (checkbox.checked) {
-            switch (index) {
-              case 0:
-                contactDivs[0].style.display = 'block';
-                break;
-              case 1:
-                contactDivs[1].style.display = 'block';
-                break;
-              case 2:
-                contactDivs[2].style.display = 'block';
-                break;
-            }
+            contactDivs[index].style.display = 'block';
           }
-
+    
           // Desmarca los demás checkboxes
           checkboxes.forEach((otherCheckbox) => {
             if (otherCheckbox !== checkbox) {
               otherCheckbox.checked = false;
             }
           });
+        });
+    
+        // Agrega eventos de mouseover y mouseout para cambiar el tamaño de la imagen
+        checkbox.addEventListener('mouseover', () => {
+          images[index].style.width = '45px'; // Tamaño más grande
+          images[index].style.height = '35px';
+        });
+    
+        checkbox.addEventListener('mouseout', () => {
+          images[index].style.width = '40px'; // Tamaño original
+          images[index].style.height = '30px';
         });
       });
     </script>
