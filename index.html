@@ -4,49 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link 
+            rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Ammon & Rizos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- Main Nav Bar Section -->
-    <nav class="main_navbar">
-      <div class="main_navbar_container">
-        <a href="index.html" class="navbar_logo"><img src="./Media/ar logo fondo azul.png"/></a>
-        
-        <a href="#main_menu" class="nav_menu">
-          <img src="./assets/menu.svg" class="main_nav_icon">
-        </a>
-        
-        <a href="#" class="nav_menu nav_menu_second">
-          <img src="./assets/close.svg" class="main_nav_icon">
-        </a>
-
-        <ul class="navbar_menu" id="main_menu">
-          <!-- Home Main Menu -->
-          <li class="navbar_item">
-            <a href="index.html" class="navbar_links">
-              <img src="./assets/home.svg" class="navbar_icons">
-              <span class="navbar_span">HOME</span>
+  <header>
+    <div class="navbar">
+        <div class="navbar_logo"><a href="index.html"><img src="./Media/ar logo fondo azul.png"/></a></div>
+        <ul class="navbar_links">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li class="nabvarsubmenu">
+            <a href="manufacturers.html">MANUFACTURERS <i class="fa-solid fa-caret-down"></i><input type="checkbox" class="dropdown_check">
             </a>
-          </li>
-          <!-- About Main Menu -->
-          <li class="navbar_item">
-            <a href="about.html" class="navbar_links">
-              <img src="./assets/about.svg" class="navbar_icons">
-              <span class="navbar_span">ABOUT</span>
-            </a>
-          </li>
-          <!-- Dropdown Manufacturers (Missing links for country sub categories) -->
-          <li class="navbar_item"> 
-            <a href="manufacturers.html" class="navbar_links">
-              <img src="./assets/manufacturers.svg" class="navbar_icons">
-              <span class="navbar_span">MANUFACTURERS</span>
-              <img src="./assets/down.svg" class="dropdown_arrow">
-
-              <input type="checkbox" class="dropdown_check">
-            </a>
-
             <div class="dropdown_content">
 
               <ul class="dropdown_sub_main_menu">
@@ -63,16 +38,8 @@
               </ul>
             </div>
           </li>
-          <!-- Dropdown Market Segments (Missing links for Market Segments categories) -->
-          <li class="navbar_item">
-            <a href="market-segments.html" class="navbar_links">
-              <img src="./assets/market segment.svg" class="navbar_icons">
-              <span class="navbar_span">MARKET SEGMENTS</span>
-              <img src="./assets/down.svg" class="dropdown_arrow">
-
-              <input type="checkbox" class="dropdown_check">
-            </a>
-
+          <li class="nabvarsubmenu">
+            <a href="market-segments.html">MARKET SEGMENTS <i class="fa-solid fa-caret-down"></i><input type="checkbox" class="dropdown_check"></a>
             <div class="dropdown_content">
 
               <ul class="dropdown_sub_main_menu">
@@ -107,16 +74,8 @@
               </ul>
             </div>
           </li>
-          <!-- Dropdown Products (Missing links for Applications categories) -->
-          <li class="navbar_item">
-            <a href="products.html" class="navbar_links">
-              <img src="./assets/products.svg" class="navbar_icons">
-              <span class="navbar_span">PRODUCTS</span>
-              <img src="./assets/down.svg" class="dropdown_arrow">
-
-              <input type="checkbox" class="dropdown_check">
-            </a>
-
+          <li class="nabvarsubmenu">
+            <a href="products.html">PRODCUTS <i class="fa-solid fa-caret-down"></i><input type="checkbox" class="dropdown_check"></a>
             <div class="dropdown_content">
 
               <ul class="dropdown_sub_main_menu">
@@ -160,16 +119,8 @@
               </ul>
             </div>
           </li>
-          <!-- Dropdown Distribuitors (Missing links for country sub categories) -->
-          <li class="navbar_item">
-            <a href="distributors.html" class="navbar_links">
-              <img src="./assets/distribuitors.svg" class="navbar_icons">
-              <span class="navbar_span">DISTRIBUTORS</span>
-              <img src="./assets/down.svg" class="dropdown_arrow">
-
-              <input type="checkbox" class="dropdown_check">
-            </a>
-
+          <li class="nabvarsubmenu">
+            <a href="distributors.html">DISTRIBUTORS <i class="fa-solid fa-caret-down"></i><input type="checkbox" class="dropdown_check"></a>
             <div class="dropdown_content">
 
               <ul class="dropdown_sub_main_menu">
@@ -186,16 +137,152 @@
               </ul>
             </div>
           </li>
-          <!-- Contact Us Main Menu -->
-          <li class="navbar_item">
-            <a href="contact.html" class="navbar_links">
-              <img src="./assets/contact.svg" class="navbar_icons">
-              <span class="navbar_span">CONTACT US</span>
+        </ul>
+        <a href="contact.html" class="contact_btn">CANTACT US</a>
+        <div class="toggle_btn">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+      <div class="dropdown_menu">
+        <ul class="navbar_links">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li class="nabvarsubmenu">
+            <a href="manufacturers.html">MANUFACTURERS <input type="checkbox" class="dropdown_check"><i class="fa-solid fa-caret-down"></i>
             </a>
+            <div class="dropdown_content">
+
+              <ul class="dropdown_sub_main_menu">
+
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">USA</a> 
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Mexico</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Brazil</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nabvarsubmenu">
+            <a href="market-segments.html">MARKET SEGMENTS <input type="checkbox" class="dropdown_check"><i class="fa-solid fa-caret-down"></i></a>
+            <div class="dropdown_content">
+
+              <ul class="dropdown_sub_main_menu">
+
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Automotive & Transportation</a> 
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Industrial</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Energy</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Lighting</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Communications</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Healthcare</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Internet of Things</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Oil & Gas</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Defense & Aerospace</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nabvarsubmenu">
+            <a href="products.html">PRODCUTS <input type="checkbox" class="dropdown_check"><i class="fa-solid fa-caret-down"></i></a>
+            <div class="dropdown_content">
+
+              <ul class="dropdown_sub_main_menu">
+
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Audio</a> 
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Automotive</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Broadcast</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Communications</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Computing</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Horticulture</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Industrial</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Instrumentation</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Lighting</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Medical</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Motor Control</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Security</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nabvarsubmenu">
+            <a href="distributors.html">DISTRIBUTORS <input type="checkbox" class="dropdown_check"><i class="fa-solid fa-caret-down"></i></a>
+            <div class="dropdown_content">
+
+              <ul class="dropdown_sub_main_menu">
+
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">USA</a> 
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Mexico</a>
+                </li>
+                <li class="dropdown_sub_main_list">
+                  <a href="#" class="dropdown_sub_item">Brazil</a>
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
+        <li><a href="contact.html" class="contact_btn">CANTACT US</a></li>
       </div>
-    </nav>
+  </header>
+  <script>
+  const toggleBtn = document.querySelector('.toggle_btn')
+  const toggleBtnIcon = document.querySelector('.toggle_btn i')
+  const dropDownMenu = document.querySelector('.dropdown_menu')
+
+  toggleBtn.onclick = function () {
+    dropDownMenu.classList.toggle('open')
+    const isOpen = dropDownMenu.classList.contains('open')
+
+    toggleBtnIcon.classList = isOpen
+    ? 'fa-solid fa-xmark'
+    : 'fa-solid fa-bars'
+  }
+  </script>
     <!-- Body Section -->
     <div class="home_img">
       <img src="./Media/Circuit.png" class="main_image"/>

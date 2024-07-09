@@ -8,153 +8,252 @@ body{
     font-family: Arial;
 }
 
-/* Navigation Bar */
-.main_navbar{
-    background-color: #012060;
-
-    --img1: scale(1);
-    --img2: scale(0);
-}
-/*Si main_navbar tiene un hijo con la clase main_menu va a revisar (target) si ha sido seleccionada*/
-.main_navbar:has(.navbar_menu:target){
-    --img1: scale(0);
-    --img2: scale(1);
-
-    --clip: inset(0 0 0 0); /*Se muestra el menú si detecta que di click a el icono de las barras del menu principal*/
+/* ------ Navigation Bar ------ */
+.navbar_links a:hover{
+    font-size: 1.01rem;
+    font-weight: bold;
 }
 
-.main_navbar_container{
-    width: 95%;
-    margin: 0 auto; /*centramos horizontalmete el contenedor*/
-    height: 100px;
-
-    display: grid;
-    grid-template-columns: max-content max-content; /*Dos columnas de maximo contenido*/
-    grid-template-areas: "logo toggle"; /*Asignamos los nombres de las areas de columnas*/
-    justify-content: space-between; /*Contenido se va a las orillas*/
-    align-items: center; /*Contenido centrado center*/
-
-    overflow: hidden; /*Todo lo que sale se esconde*/
-}
-
-.navbar_logo{
-    background-color: #012060; /*Fondo de logo ar blanco*/
-    grid-area: logo; /*Le asignamos el area logo*/
-}
-
-.nav_menu{
-    grid-area: toggle; /*Le asignamos el area toggle*/
-    position: relative; 
-    z-index: 4;
-
-    transform: var(--img1);
-}
-
-.nav_menu_second{
-    transform: var(--img2);
-}
-
-.main_nav_icon{
-    width: 30px; /*Tamaño de las barras del menu y 'x'*/
-    display: block;
-}
-
-.navbar_menu{
-    position: fixed; /*absolute para que se quede estatico y se quite si bajo mucho en la pagina, con fixed se queda fijo aun que baje scroll en la pagina*/
-    background-color: #012060;
-    width: 100%; /*75%*/
-    max-width: 300px;
-    right: 0; /*El menu se despliega a la derecha en 0*/
-    top: 0;   /*El menu se despliega de arriba en 0*/
-    bottom: 0; /*El menu se despliega hasta abajo en 0*/
-    padding: 1rem; /*Le doy padding para los elementos de la lista del menu principal*/
-
-    display: grid;
-    align-content: center;
-    gap: .2rem;/*Le doy un espacio entre los elementos de la lista del menu principal*/
-    
-    overflow-y: auto; /*le ponemos scroll a el menú ya que es mas grande de lo que puede mostrar en la pagina, auto tambien funciona*/
-
-    clip-path: var(--clip, inset(0 0 100% 100%)); /*Creo variable --clip para que si no se encuentra la variable toma el valor por defecto (oculto el menú)*/
-    transition: clip-path .5s;
-    z-index: 3;
-}
-
-.navbar_item{
-    list-style: none;
-}
-
-.navbar_links{
-    color: white; /*color de leteas de la lista en blanco*/
-    padding: 1em .7em; /*damos un padding de 1 arriba y abajo y .7 a los costados*/
-    text-decoration: none; /*quitamos la decoracion de enlase (subrayado)*/
-
-    display: flex; /*poner un elemento de lado del otro*/
-    align-items: center;
-    gap: .6rem;
-
+header{
     position: relative;
-    background-color: var(--bg, transparent); /*le asigno el color y que sea transparente cuando selecciono elemento de main menu*/
-    border-radius: 6px; /*redondeo los cuadros de seleccion en main menu*/
+    padding: 0 2rem;
+    background-color: #012060
 }
 
-.navbar_item:has( :checked){ /*Ponemos la condicion de que si un item del menu ha sido markado con check del checkbox*/
+.navbar{
+    width: 100%;
+    height: 60px;
+    /*max-width: 1200px;*/
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .navbar_logo a{
+        background-color: #012060; /*Fondo de logo ar azul*/
+    }
+
+    .navbar_links{
+        display: flex;
+        gap: 2rem;
+    }
+
+    .navbar_links li{
+        list-style: none;
+    }
+    
+    .navbar_links a{
+        text-decoration: none;
+        color: #FFF;
+        font-size: 1rem;
+    }
+
+    .navbar_links i{
+        margin-left: auto; /*Pasamos flecha de sub menu hacia la derecha*/
+        transform: var(--rotate, 0); /*Creamos la custom property "rotate" para hacer que rote 180° la flecha del sub menu*/
+        transition: .2s transform;
+    }
+
+    .navbar_links .dropdown_check{
+        position: absolute;
+        margin-left: -15px; /*Está a 180 px de la izquierda a la derecha el checkbox*/
+        margin-top: -7px;
+        width: 20px;
+        height: 50%; /*100% Para que abarque toda la casilla del link(manuf, mrkt seg, prod, distri*/
+        opacity: 0; /*Para ocultar el checkbox 0 para que no se vea*/
+        cursor: pointer;
+    }
+    
+
+    .dropdown_content{
+        position: absolute;
+        display: grid;
+        grid-template-rows: var(--rows, 0fr); /* Creamos custom property "rows" y si no encuentra la custom property Ocultamos la sub lista del menu principal*/
+        transition: .3s grid-template-rows;
+        z-index: 10;
+    
+    
+        .dropdown_sub_main_menu{
+            border-radius: 10px;
+            overflow: hidden; /*todo lo que salga de este elemento se esconda*/
+            /*background-color: rgb(38, 40, 143); /*asignamos color a el contenedor de la sub lista dropdown*/
+        }
+    
+        .dropdown_sub_main_list{
+            left: 0;
+            list-style: none; /*le quitamos el estilo de lista*/
+            margin-left: auto; /*manda a la derecha los items*/
+            width: 150px;
+        }
+    
+        .dropdown_sub_item{
+            padding: .5em 10%;
+            display: block;
+            color: #FFFFFF;
+            text-decoration: none; /*quitamos la decoracion de los enlaces (subrayado)*/
+            background-color: #012060;
+        }
+    }
+
+    .toggle_btn{
+        color: #FFF;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+    }
+}
+
+.nabvarsubmenu:has( :checked){ /*Ponemos la condicion de que si un item del menu ha sido markado con check del checkbox*/
     --rows: 1fr; /* creamos custom property "rows" para asignarle valor de 1 fracción para que se muestre el sub menu*/
     --rotate: rotate(180deg); /*Cada que se seleccione el checkbox va a rotar la flecha (de apuntar hacia abajo a apuntar hacia arriba*/
-    --bg: #ffffff58; /*el background color para cuando se selecciona un elemento de el main menu (Blanco transparente)*/
 }
 
-.navbar_icons{
-    max-width: 50px; /*Le damos el tamaño de los iconos del menú principal*/
-    max-height: 50px; /*Le damos el tamaño de los iconos del menú principal*/
 
-}
-
-.dropdown_arrow{
-    max-width: 20px; /*Le damos el tamaño de los iconos de submenus del menú principal*/
-    max-height: 20px; /*Le damos el tamaño de los iconos de submenus del menú principal*/
-}
-
-.dropdown_check{
-    position: absolute;
-    margin-left: 180px; /*Está a 180 px de la izquierda a la derecha el checkbox*/
-    width: 50%;
-    height: 50%; /*100% Para que abarque toda la casilla del link(manuf, mrkt seg, prod, distri*/
-    opacity: 0; /*Para ocultar el checkbox 0 para que no se vea*/
+.contact_btn{
+    color: #012060;
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
     cursor: pointer;
+    transition: scale .2 ease;
+    text-decoration: none;
 }
 
-.dropdown_arrow{
-    margin-left: auto; /*Pasamos flecha de sub menu hacia la derecha*/
-    transform: var(--rotate, 0); /*Creamos la custom property "rotate" para hacer que rote 180° la flecha del sub menu*/
-    transition: .2s transform;
+.contact_btn:hover{
+    scale: 1.05;
+    font-size: 0.9rem;
 }
 
-.dropdown_content{
-    display: grid;
-    grid-template-rows: var(--rows, 0fr); /* Creamos custom property "rows" y si no encuentra la custom property Ocultamos la sub lista del menu principal*/
-    transition: .3s grid-template-rows;
+.contact_btn:active{
+    scale: 0.95;
 }
 
-.dropdown_sub_main_menu{
-    overflow: hidden; /*todo lo que salga de este elemento se esconda*/
-    /*background-color: rgb(38, 40, 143); /*asignamos color a el contenedor de la sub lista dropdown*/
+/*NAVBAR DROPDOWN MENU*/
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    background: #012060;
+    backdrop-filter: blur(15px);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    .navbar_links{
+        display: flow-root;
+        gap: 2rem;
+    }
+
+    .navbar_links li{
+        padding: 0.7rem;
+        display: block;
+        margin-left: 10px;
+        margin-right: 10px;
+        list-style: none;
+    }
+    
+    .navbar_links a{
+        text-decoration: none;
+        color: #FFF;
+        font-size: 1rem;
+    }
+
+    .navbar_links i{
+        margin-left: auto; /*Pasamos flecha de sub menu hacia la derecha*/
+        transform: var(--rotate, 0); /*Creamos la custom property "rotate" para hacer que rote 180° la flecha del sub menu*/
+        transition: .2s transform;
+    }
+
+    .contact_btn{
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1em;
+    }
+
+    .navbar_links .dropdown_check{
+        position: absolute;
+        top: auto;
+        left: auto;
+        width: 20px;
+        height: 20px; /*100% Para que abarque toda la casilla del link(manuf, mrkt seg, prod, distri*/
+        opacity: 0; /*Para ocultar el checkbox 0 para que no se vea*/
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .dropdown_content{
+        position: static;
+        display: grid;
+        grid-template-rows: var(--rows, 0fr); /* Creamos custom property "rows" y si no encuentra la custom property Ocultamos la sub lista del menu principal*/
+        transition: .3s grid-template-rows;
+    
+    
+        .dropdown_sub_main_menu{
+            border-radius: 10px;
+            overflow: hidden; /*todo lo que salga de este elemento se esconda*/
+            /*background-color: rgb(38, 40, 143); /*asignamos color a el contenedor de la sub lista dropdown*/
+        }
+    
+        .dropdown_sub_main_list{
+            left: 0;
+            list-style: none; /*le quitamos el estilo de lista*/
+            margin-left: auto; /*manda a la derecha los items*/
+            width: auto;
+        }
+    
+        .dropdown_sub_item{
+            padding: 0;
+            display: block;
+            color: #FFFFFF;
+            text-decoration: none; /*quitamos la decoracion de los enlaces (subrayado)*/
+            background-color: #012060;
+        }
+    }
 }
 
-.dropdown_sub_main_list{
-    width: 85%;
-    list-style: none; /*le quitamos el estilo de lista*/
-    margin-left: auto; /*manda a la derecha los items*/
+.dropdown_menu.open {
+    height: auto;
+    z-index: 10;
 }
 
-.dropdown_sub_item{
-    padding: .5em 0;
-    display: block;
-    color: #FFFFFF;
-    text-decoration: none; /*quitamos la decoracion de los enlaces (subrayado)*/
+/*NAVBAR RESPONSIVE*/
+@media (max-width: 1100px) {
+    .navbar .navbar_links,
+    .navbar .contact_btn{
+        display: none;
+    }
+
+    .navbar .toggle_btn{
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
 }
 
-/* Footer Section */
+@media (max-width: 500px) {
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+
+    .dropdown_menu li{
+        justify-content: center;
+    }
+}
+
+
+
+/* ------ Footer Section ------ */
 .footer{
     width: auto;
     background-size: cover;
@@ -224,7 +323,7 @@ body{
     padding: 20px 0px;
 }
 
-/* Main Body */
+/* ------ Main page section ------ */
 .home_img {
     position: relative;
 
@@ -306,7 +405,7 @@ body{
     .main_img_body {
       grid-column: span 1; /* Span one column */
       max-height: 180px;
-      margin-left: 55px;
+      margin: auto;
       align-self: center;
     }
   }
@@ -328,7 +427,7 @@ body{
 }
 
 .Alexander_Graham{
-    display: inline-block;
+    display: block;
     margin-top: 10px;
     padding-left: 50px;
     background: linear-gradient(to bottom, #FFFFFF, #868686);
@@ -337,10 +436,10 @@ body{
     padding-right: 50px;
 }
 
-/* About Body*/
+/* ------ About page section ------ */
 .about_body_container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* ]Tree equal-width columns */
+    grid-template-columns: 1fr 1fr 1fr; /* Tree equal-width columns */
     gap: 10px; /* Adjust the gap between grid items */
 
     .about_title{
@@ -359,7 +458,7 @@ body{
     .ar_team_img{
         max-height: 350px; /*set max heigh for team image*/
         align-self: center; /*centrer the image in the grid */
-        margin-right: 20px;
+        margin-right: 30px;
         margin-bottom: 20px;
     }
 
@@ -371,6 +470,7 @@ body{
     }
 }
 
+
 .timeline_container{
     position: relative;
     max-width: 90%;
@@ -381,11 +481,38 @@ body{
     padding: 10px 50px;
     position: relative;
     width: 50%;
+    animation: movedown 1s linear forwards;
+    opacity: 0;
+}
+
+@keyframes movedown {
+    0%{
+        opacity: 1;
+        transform: translateY(-30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/*despliega el timeline de uno por uno AGREGAR MAS SI SE NECESITAN*/
+.timeline_event:nth-child(1){
+    animation-delay: 0s;
+}
+.timeline_event:nth-child(2){
+    animation-delay: 1s;
+}
+.timeline_event:nth-child(3){
+    animation-delay: 2s;
+}
+.timeline_event:nth-child(4){
+    animation-delay: 3s;
 }
 
 .timeline_content{
     padding: 20px 30px;
-    background: #FFFFFF;
+    background: linear-gradient(to bottom, #FFFFFF, #868686);
     position: relative;
     border-radius: 6px;
     font-size: 15px;
@@ -405,14 +532,14 @@ body{
 }
 
 .timeline_right{
-    right: -50%; /*container aparece en la derecha*/
+    left: 50%; /*container aparece en la derecha*/
 }
 
 .left_container_arrow{
     height: 0;
     width: 0;
     position: absolute;
-    top: 30%;
+    top: 20%;
     z-index: 1;
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
@@ -424,29 +551,13 @@ body{
     height: 0;
     width: 0;
     position: absolute;
-    top: 30%;
+    top: 20%;
     z-index: 1;
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
     border-left: 15px solid #012060;
     left: -15px;
     rotate: 180deg;
-}
-
-.timeline_img{
-    position: absolute;
-    max-width: 100px; /*set max heigh for team image*/
-    align-self: center; /*centrer the image in the grid */
-    margin-right: 20px;
-    margin-bottom: 20px;
-    border-radius: 50%;
-    left: -5.5%; /*alineamos al centro la imagen del texto de la derecha*/
-    top: 32px;
-    z-index: 2;
-}
-
-.timeline_img_left{
-    left: 94.5%; /*alineamos al centro la imagen del texto de la izquierda*/
 }
 
 .timeline_container::after{
@@ -462,12 +573,64 @@ body{
     animation: moveline 4s linear forwards;
 }
 
+@media screen and (max-width:750px){
+    .timeline_container{
+        margin: 50px auto;
+    }
+    .timeline_container::after{
+        left: 31px;
+    }
+    .timeline_event{
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 25px;
+    }
+    .timelaine_content{
+        font-size: 13px;
+    }
+    .timelaine_content small{
+        margin-bottom: 10px;
+    }
+    .timeline_right{
+        left: 0;
+    }
+    .timeline_left img, .timeline_right img{
+        left: 10px;
+    }
+    .left_container_arrow, .right_container_arrow{
+        border-right: 15px solid #012060;
+        border-left: 0;
+        left: -15px;
+        rotate: 0deg;
+    }
+    .ar_team_img{
+        height: 250px; /*set max heigh for team image*/
+    }
+}
+
+.timeline_img{
+    position: absolute;
+    width: 40px;
+    border-radius: 50%;
+    right: -20px;
+    top: 32px;
+    z-index: 10;
+}
+
+.timeline_img_left{
+    left: -20px;
+    /*left: 94.5%; /*alineamos al centro la imagen del texto de la izquierda*/
+}
+
+
 @keyframes moveline{
     0%{height: 0;}
     100%{height: 100%;}
 }
 
-/* Manufacturers Body*/
+
+
+/* ------ Manufacturers page section ------ */
 .manufacturers_title{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; /* Tree equal-width columns */
@@ -511,13 +674,12 @@ body{
 }
 
 #principal_accordion li label span{
-    transform: rotate(90deg);
     font-size: 22px;
     font-weight: 700;
     color: #012060;
 }
 
-#principal_accordion label + input[type="radio"]{
+#principal_accordion label + input[type="checkbox"]{
     display: none;
 }
 
@@ -526,10 +688,10 @@ body{
     line-height: 26px;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.001s;
+    transition: max-height 0.1s ease;
 }
 
-#principal_accordion label + input[type="radio"]:checked + .principals_content{
+#principal_accordion label + input[type="checkbox"]:checked ~ .principals_content{
     max-height: 100%;
 }
 
@@ -570,4 +732,326 @@ body{
     .principals_content {
       grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
     }
-  }
+}
+
+/* ------ Distributors page section ------ */
+.distributors_title{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Tree equal-width columns */
+    align-items: center;
+
+    .main_distributors{
+        margin-top: 20px;
+        margin-bottom: 40px;
+        justify-self: center;
+    }
+}
+
+#distributors_accordion{
+    margin: 100px;
+    width: 90%;
+}
+
+#distributors_accordion li{
+    list-style: none;
+    width: 100%;
+    margin-bottom: 10px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+#distributors_accordion li label{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #012060;
+}
+
+#distributors_accordion li label img{
+    max-height: 70px;
+    max-width: 100px;
+}
+
+#distributors_accordion li label span{
+    font-size: 22px;
+    font-weight: 700;
+    color: #012060;
+}
+
+#distributors_accordion label + input[type="checkbox"]{
+    display: none;
+}
+
+#distributors_accordion .distributors_content{
+    padding: 0 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.1s ease;
+}
+
+#distributors_accordion label + input[type="checkbox"]:checked ~ .distributors_content{
+    max-height: 100%;
+}
+
+.distributors_content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-rows: repeat(1fr);
+    gap: 30px;
+    margin: 50px; /* 20px margin left and right */
+}
+  
+.distributors_content li {
+    text-align: center;
+    list-style: none;
+}
+  
+.distributor_logo img {
+    width: 100%;
+    max-height: 500px;
+    border-radius: 5px;
+    border: 1px solid #ddd; /* Add a border for a clean look */;
+    transition: transform 0.3s; /* Add a smooth hover effect */
+}
+
+.distributor_logo img:hover {
+    transform: scale(1.1); /* Increase the size on hover */
+}
+
+.distributor_name {
+    display: block;
+    margin-top: 10px; /* Adjust as needed */
+    text-decoration: none;
+    color: #000; /* Adjust the color as needed */
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .distributors_content {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+}
+
+/* ------ Market Segments page section ------ */
+
+.marketseg_title{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Tree equal-width columns */
+    align-items: center;
+
+    .main_marketseg{
+        margin-top: 20px;
+        margin-bottom: 40px;
+        justify-self: center;
+    }
+}
+
+.marketseg_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-rows: repeat(1fr);
+    gap: 30px;
+    margin: 50px; /* 20px margin left and right */
+}
+
+.marketseg_grid li{
+    text-align: center;
+    list-style: none;
+}
+
+.marketseg_grid li a b{
+    text-decoration: none;
+}
+
+.market_name{
+    display: block;
+    margin-top: 10px; /* Adjust as needed */
+    text-decoration: none;
+    color: #000; /* Adjust the color as needed */
+    font-weight: bold;
+}
+
+.marketseg_grid img {
+    width: 100%;
+    max-height: 500px;
+    border-radius: 5px;
+    border: 1px solid #ddd; /* Add a border for a clean look */;
+    transition: transform 0.3s; /* Add a smooth hover effect */
+}
+
+.marketseg_grid img:hover {
+    transform: scale(1.1); /* Increase the size on hover */
+}
+
+/* ------ Contact page section ------ */
+
+.contact_title{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Tree equal-width columns */
+    align-items: center;
+
+    h1{
+        margin-top: 20px;
+        margin-bottom: 40px;
+        justify-self: center;
+    }
+}
+
+.contact_box{
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 1.3fr;
+    grid-template-rows: 2.5fr 4fr;
+    grid-template-areas: 
+    "form info"
+    "form map";
+    grid-gap: 20px;
+    margin-top: 20px;
+
+    .contact{
+        padding: 40px;
+        background-color: #FFF;
+        box-shadow: 0 5px 35px rgba(0, 0, 0, 0.15);
+
+        .formBox{
+            position: relative;
+            width: 100%;
+        }
+
+        .formBox .row50{
+            display: flex;
+            gap: 20px;
+        }
+        
+        .inputBox{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+            width: 50%;
+
+            span{
+                color: #012060;
+                margin-top: 10px;
+                margin-bottom: 5px;
+                font-weight: 500;
+            }
+
+            input{
+                padding: 10px;
+                font-size: 1em;
+                outline: none;
+                border: 1px solid #012060;
+            }
+
+            textarea{
+                padding: 10px;
+                font-size: 1em;
+                outline: none;
+                border: 1px solid #012060;
+                resize: none;
+                min-height: 250px;
+                margin-bottom: 10px;
+            }
+        }
+        .formBox .row100 .inputBox{
+            width: 100%;
+        }
+
+        .formBox .row100 .inputBox input{
+            background: #012060;
+            color: #FFF;
+            border: none;
+            font-size: 1.1em;
+            max-width: 200px;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 14px 15px;
+        }
+
+        .infoSelect {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: start;
+          }
+          
+          .infoSelect img {
+            top: 50px;
+            width: 40px; /* ajusta el tamaño de la imagen */
+            height: 30px;
+            margin: 0px;
+            position: relative; /* posición relativa para que se pueda superponer el checkbox */
+          }
+          
+          .infoSelect .contactInfoCheck{
+            width: 50px; /* ajusta el tamaño de la imagen */
+            height: 40px;
+            position: relative; /* posición absoluta para que se superponga a la imagen */
+            left: -5px; /* ajusta la posición del checkbox a la izquierda de la imagen */
+            top: 10px; /* ajusta la posición del checkbox a la parte superior de la imagen */
+            opacity: 0;
+            }
+          
+        
+        .infoBox{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .contactMX, .contactUSA, .contactBR {
+                display: none;
+                position: relative;
+                top: -200px;
+                left: 150px;
+            }
+        .infoBox h2{
+            margin-left: 50px;
+        }
+
+        .infoBox ul{
+            margin-left: -50px;
+            margin-top: 20px;
+        }
+
+        .infoBox li{
+            list-style: none;
+            padding-top: 10px;
+        }
+
+        .phoneInfo{
+            position: relative;
+            margin-top: 15px;
+            margin-left: -50px;
+        }
+
+        .infoBox i{
+            color: #012060;
+        }
+    }
+
+    #mapid { height: 500px; } /* Establece la altura del mapa */
+
+    .inputBox ::placeholder{
+        color: #999;
+    }
+
+    .form{
+        grid-area: form;
+    }
+
+    .info{
+        grid-area: info;
+    }
+
+    .map{
+        grid-area: map;
+    }
+    
+}

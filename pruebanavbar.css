@@ -1,0 +1,249 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body{
+    font-family: Arial;
+}
+
+.navbar_links a:hover{
+    font-size: 1.01rem;
+    font-weight: bold;
+}
+
+header{
+    position: relative;
+    padding: 0 2rem;
+    background-color: #012060
+}
+
+.navbar{
+    width: 100%;
+    height: 60px;
+    /*max-width: 1200px;*/
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .navbar_logo a{
+        background-color: #012060; /*Fondo de logo ar azul*/
+    }
+
+    .navbar_links{
+        display: flex;
+        gap: 2rem;
+    }
+
+    .navbar_links li{
+        list-style: none;
+    }
+    
+    .navbar_links a{
+        text-decoration: none;
+        color: #FFF;
+        font-size: 1rem;
+    }
+
+    .navbar_links i{
+        margin-left: auto; /*Pasamos flecha de sub menu hacia la derecha*/
+        transform: var(--rotate, 0); /*Creamos la custom property "rotate" para hacer que rote 180° la flecha del sub menu*/
+        transition: .2s transform;
+    }
+
+    .navbar_links .dropdown_check{
+        position: absolute;
+        margin-left: -15px; /*Está a 180 px de la izquierda a la derecha el checkbox*/
+        margin-top: -7px;
+        width: 20px;
+        height: 50%; /*100% Para que abarque toda la casilla del link(manuf, mrkt seg, prod, distri*/
+        opacity: 0; /*Para ocultar el checkbox 0 para que no se vea*/
+        cursor: pointer;
+    }
+    
+
+    .dropdown_content{
+        position: absolute;
+        display: grid;
+        grid-template-rows: var(--rows, 0fr); /* Creamos custom property "rows" y si no encuentra la custom property Ocultamos la sub lista del menu principal*/
+        transition: .3s grid-template-rows;
+    
+    
+        .dropdown_sub_main_menu{
+            border-radius: 10px;
+            overflow: hidden; /*todo lo que salga de este elemento se esconda*/
+            /*background-color: rgb(38, 40, 143); /*asignamos color a el contenedor de la sub lista dropdown*/
+        }
+    
+        .dropdown_sub_main_list{
+            left: 0;
+            list-style: none; /*le quitamos el estilo de lista*/
+            margin-left: auto; /*manda a la derecha los items*/
+            width: 150px;
+        }
+    
+        .dropdown_sub_item{
+            padding: .5em 10%;
+            display: block;
+            color: #FFFFFF;
+            text-decoration: none; /*quitamos la decoracion de los enlaces (subrayado)*/
+            background-color: #012060;
+        }
+    }
+
+    .toggle_btn{
+        color: #FFF;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+    }
+}
+
+.nabvarsubmenu:has( :checked){ /*Ponemos la condicion de que si un item del menu ha sido markado con check del checkbox*/
+    --rows: 1fr; /* creamos custom property "rows" para asignarle valor de 1 fracción para que se muestre el sub menu*/
+    --rotate: rotate(180deg); /*Cada que se seleccione el checkbox va a rotar la flecha (de apuntar hacia abajo a apuntar hacia arriba*/
+}
+
+
+.contact_btn{
+    color: #012060;
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale .2 ease;
+    text-decoration: none;
+}
+
+.contact_btn:hover{
+    scale: 1.05;
+    font-size: 0.9rem;
+}
+
+.contact_btn:active{
+    scale: 0.95;
+}
+
+/*NAVBAR DROPDOWN MENU*/
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    background: #012060;
+    backdrop-filter: blur(15px);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    .navbar_links{
+        display: flow-root;
+        gap: 2rem;
+    }
+
+    .navbar_links li{
+        padding: 0.7rem;
+        display: block;
+        margin-left: 10px;
+        margin-right: 10px;
+        list-style: none;
+    }
+    
+    .navbar_links a{
+        text-decoration: none;
+        color: #FFF;
+        font-size: 1rem;
+    }
+
+    .navbar_links i{
+        margin-left: auto; /*Pasamos flecha de sub menu hacia la derecha*/
+        transform: var(--rotate, 0); /*Creamos la custom property "rotate" para hacer que rote 180° la flecha del sub menu*/
+        transition: .2s transform;
+    }
+
+    .contact_btn{
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1em;
+    }
+
+    .navbar_links .dropdown_check{
+        position: absolute;
+        top: auto;
+        left: auto;
+        width: 20px;
+        height: 20px; /*100% Para que abarque toda la casilla del link(manuf, mrkt seg, prod, distri*/
+        opacity: 0; /*Para ocultar el checkbox 0 para que no se vea*/
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .dropdown_content{
+        position: static;
+        display: grid;
+        grid-template-rows: var(--rows, 0fr); /* Creamos custom property "rows" y si no encuentra la custom property Ocultamos la sub lista del menu principal*/
+        transition: .3s grid-template-rows;
+    
+    
+        .dropdown_sub_main_menu{
+            border-radius: 10px;
+            overflow: hidden; /*todo lo que salga de este elemento se esconda*/
+            /*background-color: rgb(38, 40, 143); /*asignamos color a el contenedor de la sub lista dropdown*/
+        }
+    
+        .dropdown_sub_main_list{
+            left: 0;
+            list-style: none; /*le quitamos el estilo de lista*/
+            margin-left: auto; /*manda a la derecha los items*/
+            width: auto;
+        }
+    
+        .dropdown_sub_item{
+            padding: 0;
+            display: block;
+            color: #FFFFFF;
+            text-decoration: none; /*quitamos la decoracion de los enlaces (subrayado)*/
+            background-color: #012060;
+        }
+    }
+}
+
+.dropdown_menu.open {
+    height: auto;
+}
+
+/*NAVBAR RESPONSIVE*/
+@media (max-width: 1100px) {
+    .navbar .navbar_links,
+    .navbar .contact_btn{
+        display: none;
+    }
+
+    .navbar .toggle_btn{
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+}
+
+@media (max-width: 500px) {
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+
+    .dropdown_menu li{
+        justify-content: center;
+    }
+}
