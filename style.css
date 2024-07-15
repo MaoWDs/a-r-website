@@ -921,6 +921,11 @@ header{
         background-color: #FFF;
         box-shadow: 0 5px 35px rgba(0, 0, 0, 0.15);
 
+        h3{
+            color:  #012060;
+            font-size: 25px;
+        }
+
         .formBox{
             position: relative;
             width: 100%;

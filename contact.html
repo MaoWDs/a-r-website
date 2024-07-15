@@ -11,6 +11,7 @@
             crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Ammon & Rizos - Contact Us</title>
 </head>
             
@@ -296,35 +297,36 @@
   <div class="contact_box">
     <div class="contact form">
       <h3>Send a message</h3>
-      <form>
+      <form action="form.php" method="POST">
         <div class="formBox">
           <div class="row50">
             <div class="inputBox">
               <span>First Name</span>
-              <input type="text" placeholder="First Name">
+              <input type="text" name="firstName" placeholder="First Name" required>
             </div>
             <div class="inputBox">
               <span>Last Name</span>
-              <input type="text" placeholder="Last Name">
+              <input type="text" name="lastName" placeholder="Last Name" required>
             </div>
           </div>
           <div class="row50">
             <div class="inputBox">
               <span>Email</span>
-              <input type="text" placeholder="example@email.com">
+              <input type="email" name="email" placeholder="example@email.com" required>
             </div>
             <div class="inputBox">
               <span>Phone</span>
-              <input type="text" placeholder="+51 1234567890">
+              <input type="text" name="phone" placeholder="+51 1234567890">
             </div>
           </div>
           <div class="row100">
             <div class="inputBox">
               <span>Message</span>
-              <textarea placeholder="Write your message here..."></textarea>
+              <textarea name="message" placeholder="Write your message here..." required></textarea>
             </div>
           </div>
           <div class="row100">
+            <div class="g-recaptcha" data-sitekey="6LcjSg4qAAAAAPimJh6ZcQqcd8fRAHQ33gUlUb7v"></div> <!-- reCAPTCHA widget -->
             <div class="inputBox">
               <input type="submit" value="Send">
             </div>
