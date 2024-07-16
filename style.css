@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 *{
     margin: 0;
     box-sizing: border-box;
     padding: 0;
 }
 
-body{
-    font-family: Arial;
-}
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url(/Media/backgroundwebsite.png);
+    background-size: cover; /* Ajusta la imagen de fondo al tamaño de la vista */
+    background-position: center; /* Centra la imagen de fondo horizontal y verticalmente */
+    background-attachment: fixed; /* Fija la imagen de fondo en la vista del usuario */
+    margin: 0; /* Elimina el margen del body */
+  }
 
 /* ------ Navigation Bar ------ */
 .navbar_links a:hover{
@@ -325,57 +332,97 @@ header{
 
 /* ------ Main page section ------ */
 .home_img {
+    background-color: #FFFFFF;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* Cambia la dirección del flexbox a column */
+    justify-content: center;
+    align-items: center;
+    /* Alinea verticalmente los elementos */
+    height: 100vh;
     position: relative;
 
-  
-  .main_image {
-    width: 100%; /* Cover the entire width of the page */
-    max-height: 600px; /* set max heigh of the image*/
-    height: auto;
-  }
-  
-  .main_logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -40%); /* Center the logo vertically and horizontally */
-    z-index: 1; /* Place the logo in front of the main_image */
-    background-color: #FFFFFF;
-    opacity: .5;
-    border-radius: 25%;
-  }
+    .main-text {
+        font-size: 5.2rem !important;
+        font-weight: 900;
+        background-image: url("/Media/mainarbackground.jpg");
+        background-size: cover;
+        object-fit: cover;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        line-height: 1;
+        margin-top: -30vh;
+    }
+}
 
-  .main_ar {
-    position: absolute;
-    top: 10px; /* Adjust as needed to position it at the top of the main_image */
-    margin-top: 15px;
-    left: 50%;
-    transform: translateX(-50%); /* Center the text horizontally */
-    z-index: 2; /* Place the text in front of the main_image */
-    text-align: center;
-    max-width: 1000px;
-    color: #FFFFFF; /* Text color */
-    background-color: none;
-    opacity: .7;
-    text-decoration-color: #012060;
-    font-size: 25px;
-  }
+.flag-country {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Agrega un margen superior para separar del texto */
   
-  .main_slog {
-    position: absolute;
-    bottom: 10px; /* Adjust as needed to position it at the bottom of the main_image */
-    margin-bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%); /* Center the text horizontally */
-    z-index: 2; /* Place the text in front of the main_image */
-    text-align: center;
-    color: #FFFFFF; /* Text color */
-    background-color: none;
-    opacity: .7;
-    text-decoration-color: #012060;
-    font-size: 25px;
+  .image {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px; /* Agrega un margen horizontal para separar las imágenes */
   }
 }
+
+.changing-text {
+    font-size: 30px;
+    font-weight: 900;
+    margin-top: 10%;
+    /* Elimina el margen superior */
+    background-image: url("/Media/mainarbackground.jpg");
+    background-size: cover;
+    object-fit: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    line-height: 1;
+    padding: 10px 0 10px 0;
+
+    .rotating-text {
+        display: inline-block;
+    }
+}
+
+.home-cards {
+    width: 100%;
+    width: 820px;
+    height: 340px;
+    display: flex;
+    gap: 10px;
+    margin-inline: 50px;
+
+    .card {
+        min-height: 70px;
+        height: 100%;
+        border-radius: 30px;
+        display: flex;
+        align-items: flex-end;
+        flex-grow: 1;
+        position: relative;
+        transition: flex-glow 0.5s ease;
+    }
+
+    .card:hover {
+        flex-grow: 7;
+    }
+}
+
+.card-content > .main_title {
+    margin-left: 10px;
+    translate: 0 100%;
+    opacity: 0;
+}
+
+.card:hover .main_title {
+    opacity: 1;
+    translate: 0 0;
+}
+
 .main_body_container {
     display: grid;
     grid-template-columns: 3fr 2fr; /* Two equal-width columns */
@@ -1114,3 +1161,35 @@ header{
         width: calc(100% - 60px); /* Calcula el ancho después de añadir los márgenes */
     }
 }
+
+@media (min-width: 1200px) {
+    .main-text {
+      font-size: 6rem !important;
+    }
+    .changing-text {
+      font-size: 36px;
+    }
+
+  }
+  
+  /* Pantalla mediana (tablet) */
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .main-text {
+      font-size: 4.5rem !important;
+    }
+    .changing-text {
+      font-size: 28px;
+    }
+
+  }
+  
+  /* Pantalla pequeña (mobile) */
+  @media (max-width: 767px) {
+    .main-text {
+      font-size: 3.5rem !important;
+    }
+    .changing-text {
+      font-size: 22px;
+    }
+
+  }

@@ -285,12 +285,86 @@
   </script>
     <!-- Body Section -->
     <div class="home_img">
-      <img src="./Media/Circuit.png" class="main_image"/>
-      <img src="./Media/ar logo azul sin fondo.png" class="main_logo"/>
-      <h3 class="main_ar">Ammon & Rizos Electronics - Manufacturers Rep <br>| USA | Mexico | Brazil |</h3>
-      <h2 class="main_slog">#1: Our Commitment, Your Connection Advantage. <br>#2: Committed to Powering Your Connections.</h2>
+      <span class="main-text">Ammon & Rizos</span>
+      <div class="flag-country">
+        <img src="./Media/USA.png" class="image">
+        <img src="./Media/mexico.png" class="image">
+        <img src="./Media/brazil.png" class="image">
+      </div>
+      <div class="changing-text">
+        <span>We are: </span>
+        <span class="rotating-text"></span>
+      </div>
     </div>
+    <script> // Cambia el texto de main cada 2 segundos
+      const words = ["Partners", "Service Contact", "Demand Creation", "Experts", "Product Enginieering"];
+      let currentWord = 0;
+
+      function rotateText() {
+        const rotatingText = document.querySelector(".rotating-text");
+        rotatingText.textContent = words[currentWord];
+        currentWord = (currentWord + 1) % words.length;
+      }
+
+      setInterval(rotateText, 2000); // Cambia el texto cada 2 segundos
+    </script>
     <br>
+
+    <div class="home-cards">
+      <div class="card">
+        <img src="./Media/Ideas/fueling demand creation3.jpg" class="background">
+        <div class="card-content">
+          <h2 class="main_title">Fueling Demand Creation</h2>
+          <p class="card-text">
+            At Ammon & Rizos, we are more than just a manufacturer's representative—we are the architects of 
+            demand creation within the electronics industry. With an unwavering commitment to innovation and 
+            excellence, we lead the charge in transforming market potential into a tangible reality.
+          </p>
+        </div>
+        <div class="backdrop"></div>
+      </div>
+      <div class="card">
+        <img src="./Media/Ideas/expert.png" class="background">
+        <div class="card-content">
+          <h2 class="main_title">Our Expertise:</h2>
+          <p class="card-text">
+            With a proven track record and a wealth of experience, we specialize in breathing life into Passive 
+            and Semiconductor devices, driving demand and propelling growth. Our team of highly skilled professionals, 
+            strategically positioned across nine locations, possesses the knowledge, insights, and relentless 
+            dedication needed to captivate audiences and inspire action.
+          </p>
+        </div>
+        <div class="backdrop"></div>
+      </div>
+      <div class="card">
+        <img src="./Media/Ideas/ar differencia.jpg" class="background">
+        <div class="card-content">
+          <h2 class="main_title">The Ammon & Rizos Difference:</h2>
+          <p class="card-text">
+            What sets us apart is our ability to orchestrate compelling strategies that resonate with customers, 
+            distributors, and partners alike. We leverage our deep understanding of the market, coupled with 
+            cutting-edge marketing and sales techniques, to create demand that transcends expectations.
+          </p>
+        </div>
+        <div class="backdrop"></div>
+      </div>
+      <div class="card">
+        <img src="./Media/Ideas/prmise.png" class="background">
+        <div class="card-content">
+          <h2 class="main_title">Our Promise:</h2>
+          <p class="card-text">
+            When you partner with Ammon & Rizos, you embark on a journey towards transformative demand creation. 
+            We pledge to not only meet but exceed your expectations, generating not just demand but enthusiasm for 
+            your products and services. As pioneers in our field, we are here to shape the future of your business, 
+            ushering in a new era of success and growth. Join us in igniting demand, sparking innovation, and shaping 
+            tomorrow's electronics landscape today.
+          </p>
+        </div>
+        <div class="backdrop"></div>
+      </div>
+    </div>
+
+
     <div class="main_body_container">
       <h2 class="main_title">Fueling Demand Creation</h2>
       <p class="main_text">

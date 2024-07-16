@@ -282,5 +282,75 @@
             : 'fa-solid fa-bars'
           }
         </script>
+
+<div class="home-cards">
+  <div class="card">
+    <img src="./Media/Ideas/fueling demand creation3.jpg" class="background">
+    <div class="card-content">
+      <h2 class="main_title">Fueling Demand Creation</h2>
+      <p class="card-text">
+        At Ammon & Rizos, we are more than just a manufacturer's representative—we are the architects of 
+        demand creation within the electronics industry. With an unwavering commitment to innovation and 
+        excellence, we lead the charge in transforming market potential into a tangible reality.
+      </p>
+    </div>
+    <div class="backdrop"></div>
+  </div>
+  <div class="card">
+    <img src="./Media/Ideas/expert.png" class="background">
+    <div class="card-content">
+      <h2 class="main_title">Our Expertise:</h2>
+      <p class="card-text">
+        With a proven track record and a wealth of experience, we specialize in breathing life into Passive 
+        and Semiconductor devices, driving demand and propelling growth. Our team of highly skilled professionals, 
+        strategically positioned across nine locations, possesses the knowledge, insights, and relentless 
+        dedication needed to captivate audiences and inspire action.
+      </p>
+    </div>
+    <div class="backdrop"></div>
+  </div>
+  <div class="card">
+    <img src="./Media/Ideas/ar differencia.jpg" class="background">
+    <div class="card-content">
+      <h2 class="main_title">The Ammon & Rizos Difference:</h2>
+      <p class="card-text">
+        What sets us apart is our ability to orchestrate compelling strategies that resonate with customers, 
+        distributors, and partners alike. We leverage our deep understanding of the market, coupled with 
+        cutting-edge marketing and sales techniques, to create demand that transcends expectations.
+      </p>
+    </div>
+    <div class="backdrop"></div>
+  </div>
+  <div class="card">
+    <img src="./Media/Ideas/prmise.png" class="background">
+    <div class="card-content">
+      <h2 class="main_title">Our Promise:</h2>
+      <p class="card-text">
+        When you partner with Ammon & Rizos, you embark on a journey towards transformative demand creation. 
+        We pledge to not only meet but exceed your expectations, generating not just demand but enthusiasm for 
+        your products and services. As pioneers in our field, we are here to shape the future of your business, 
+        ushering in a new era of success and growth. Join us in igniting demand, sparking innovation, and shaping 
+        tomorrow's electronics landscape today.
+      </p>
+    </div>
+    <div class="backdrop"></div>
+  </div>
+</div>
+<script>
+  const cardsContainer = document.querySelector(".home-cards");
+
+cardsContainer.addEventListener("click", (e) => {
+  const target = e.target.closest(".card");
+
+  if (!target) return;
+
+  cardsContainer.querySelectorAll(".card").forEach((card) => {
+    card.classList.remove("active");
+  });
+
+  target.classList.add("active");
+});
+</script>
+
     </body>
 </html>
