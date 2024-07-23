@@ -249,85 +249,161 @@ header{
 }
 
 
+/* Estilos para el contenedor de las cards */
 .home-cards {
+    /* Ancho del contenedor */
     width: 90%;
-    height: 340px;
+    /* Alto del contenedor */
+    height: 500px;
+    /* Display flex para que las cards se distribuyan horizontalmente */
     display: flex;
+    /* Espacio entre las cards */
     gap: 10px;
+    /* Margen horizontal */
     margin-inline: 50px;
+    /* Centrar las cards horizontalmente */
+    justify-content: center;
   }
   
+  /* Estilos para cada card */
   .card {
-    min-width: 70px;
+    /* Ancho fijo para cada card */
+    width: 250px;
+    /* Alto relativo al contenedor */
     height: 100%;
+    /* Radio de curvatura para las esquinas */
     border-radius: 30px;
+    /* Ocultar contenido que sobrepase el ancho y alto */
     overflow: hidden;
-  
+    /* Display flex para que el contenido se distribuya verticalmente */
     display: flex;
-    align-items: flex-end;
-    flex-grow: 1;
-    cursor: pointer;
-    position: relative;
-    transition: flex-grow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  
-    --transition-timing: 0.35s;
-  }
-
-  .card:hover {
-    flex-grow: 7;
-  }
-  
-  .card > .background {
-    position: absolute;
-    inset: 0;
-    object-fit: cover;
-    object-position: center;
-    filter: brightness(0.4);
-    z-index: -1;
-    transition: var(--transition-timing) ease;
-  }
-  .card:hover > .background {
-    filter: brightness(1);
-  }
-  
-  .card > .card-content {
-    display: flex;
+    /* Dirección del contenido (columna) */
+    flex-direction: column;
+    /* Alinear contenido horizontalmente */
     align-items: center;
+    /* Justificar contenido verticalmente */
+    justify-content: center;
+    /* Cursor en forma de mano para indicar que es clickable */
+    cursor: pointer;
+    /* Posición relativa para que el fondo se posicione absolutamente */
+    position: relative;
+    /* Transición suave para los efectos de hover */
+    transition: all 0.5s ease;
+  }
+  
+  /* Estilos para el fondo de la card */
+  .card .background {
+    /* Posición absoluta para que se posicione detrás del contenido */
     position: absolute;
-    left: 10px;
-    right: 10px;
-    bottom: 20px;
-    overflow: hidden;
-    transition: var(--transition-timing);
-    z-index: 10;
-  }
-  .card:hover > .card-content {
-    inset: 20px;
-    top: auto;
-  }
-  
-  .card-content > * {
-    transition: var(--transition-timing);
-  }
-  
-  
-  .card-content > .main_title {
-    white-space: pre;
-    margin-left: 10px;
-    translate: 0 100%;
-    opacity: 0;
-  }
-  .card:hover .main_title {
-    opacity: 1;
-    translate: 0 0;
-  }
-  
-  .card > .backdrop {
-    position: absolute;
+    /* Top y left para que se posicione en la esquina superior izquierda */
+    top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100px;
-    z-index: 0;
-    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+    /* Ancho y alto del fondo */
+    width: 100%;
+    height: 100%;
+    /* Ajustar imagen de fondo para que se vea completa */
+    object-fit: cover;
+    /* Centrar imagen de fondo */
+    object-position: center;
+    /* Transición suave para los efectos de hover */
+    transition: all 0.5s ease;
   }
+  
+  /* Estilos para el contenido de la card */
+  .card .card-content {
+    /* Display flex para que el contenido se distribuya verticalmente */
+    display: flex;
+    /* Dirección del contenido (columna) */
+    flex-direction: column;
+    /* Alinear contenido horizontalmente */
+    align-items: center;
+    /* Justificar contenido verticalmente */
+    justify-content: center;
+    /* Posición relativa para que el título se posicione absolutamente */
+    position: relative;
+    /* Z-index para que el contenido se vea encima del fondo */
+    z-index: 1;
+  }
+  
+  /* Estilos para el título de la card */
+  .card-content .main_title {
+    /* Tamaño de fuente */
+    font-size: 24px;
+    /* Peso de fuente (negrita) */
+    font-weight: bold;
+    /* Color de texto (blanco) */
+    color: #FFFFFF;
+    /* Alinear texto horizontalmente */
+    text-align: center;
+    /* Margen inferior */
+    margin-bottom: 20px;
+    /* Opacidad del título */
+    opacity: 1;
+    /* Fondo negro para el título */
+    background-color: #012060;
+    /* Padding para que el título se vea centrado */
+    padding: 10px;
+    width: 100%;
+  }
+  
+  /* Estilos para el texto de la card */
+  .card-content .card-text {
+    /* Tamaño de fuente */
+    font-size: 16px;
+    /* Color de texto (blanco) */
+    color: #012060;
+    /* Alinear texto horizontalmente */
+    text-align: center;
+    /* Ocultar texto por defecto */
+    display: none;
+  }
+  
+  /* Estilos para cuando se pasa el cursor sobre la card */
+  .card:hover {
+    /* Aumentar ancho de la card */
+    flex-grow: 7;
+    /* Ancho nuevo de la card */
+    width: 450px;
+  }
+  
+  /* Estilos para las cards hermanas cuando se pasa el cursor sobre una card */
+  .card:hover ~ .card {
+    /* Reducir ancho de las cards hermanas */
+    width: 180px;
+  }
+  
+  /* Estilos para el fondo de la card cuando se pasa el cursor */
+  .card:hover .background {
+    /* Ancho y alto del fondo */
+    width: 150px;
+    height: 150px;
+    /* Posición del fondo */
+    top: 20px;
+    left: 50%;
+    /* Transformar fondo para que se vea circular */
+    transform: translateX(-50%);
+    /* Radio de curvatura para el fondo */ border-radius: 50%; }
+
+    /* Estilos para el contenido de la card cuando se pasa el cursor */ 
+    .card:hover .card-content { 
+        /* Dirección del contenido (columna) */ 
+        flex-direction: column; 
+        /* Alinear contenido horizontalmente */ 
+        align-items: center; 
+        /* Justificar contenido verticalmente */ 
+        justify-content: center; 
+    }
+
+    /* Estilos para el título de la card cuando se pasa el cursor */ 
+    .card:hover .card-content .main_title { 
+        /* Margen superior */ 
+        margin-top: 30px; 
+    }
+
+    /* Estilos para el texto de la card cuando se pasa el cursor */ 
+    .card:hover .card-content .card-text { 
+        /* Mostrar texto */ 
+        display: block; 
+        /* Margen superior */ 
+        margin-top: 20px; 
+    }
