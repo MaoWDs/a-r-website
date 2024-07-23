@@ -10,7 +10,7 @@ require 'PHPMailer/src/SMTP.php';
 
 // Configuración de reCAPTCHA
 $siteKey = '6LcjSg4qAAAAAPimJh6ZcQqcd8fRAHQ33gUlUb7v';
-$secretKey = '6LcjSg4qAAAAANEu0CyEkagbC2k1UI4pm1pp7B1f';
+$secretKey = '';
 
 // Verificar reCAPTCHA
 if (isset($_POST['g-recaptcha-response'])) {
