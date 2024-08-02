@@ -9,10 +9,10 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-image: url(Media/backgroundwebsite.png);
+    /*background-image: url(Media/backgroundwebsite.png);
     background-size: cover; /* Ajusta la imagen de fondo al tamaño de la vista */
-    background-position: center; /* Centra la imagen de fondo horizontal y verticalmente */
-    background-attachment: fixed; /* Fija la imagen de fondo en la vista del usuario */
+    /*background-position: center; /* Centra la imagen de fondo horizontal y verticalmente */
+    /*background-attachment: fixed; /* Fija la imagen de fondo en la vista del usuario */
     margin: 0; /* Elimina el margen del body */
   }
 
