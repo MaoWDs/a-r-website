@@ -1,0 +1,523 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@o,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url(Media/backgroundwebsite.png);
+    background-size: cover; /* Ajusta la imagen de fondo al tamaño de la vista */
+    background-position: center; /* Centra la imagen de fondo horizontal y verticalmente */
+    background-attachment: fixed; /* Fija la imagen de fondo en la vista del usuario */
+    margin: 0; /* Elimina el margen del body */
+  }
+
+/* ------ Navigation Bar ------ */
+.navbar_links a:hover{
+    font-size: 1.01rem;
+    font-weight: bold;
+}
+
+header{
+    position: relative;
+    padding: 0 2rem;
+    background-color: #012060
+}
+
+.navbar{
+    width: 100%;
+    height: 60px;
+    /*max-width: 1200px;*/
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .navbar_logo a{
+        background-color: #012060; /*Fondo de logo ar azul*/
+    }
+
+    .navbar_links{
+        display: flex;
+        gap: 2rem;
+    }
+
+    .navbar_links li{
+        list-style: none;
+    }
+    
+    .navbar_links a{
+        text-decoration: none;
+        color: #FFF;
+        font-size: 1rem;
+    }
+
+    .navbar_links i{
+        margin-left: auto; /*Pasamos flecha de sub menu hacia la derecha*/
+        transform: var(--rotate, 0); /*Creamos la custom property "rotate" para hacer que rote 180° la flecha del sub menu*/
+        transition: .2s transform;
+    }
+
+    .navbar_links .dropdown_check{
+        position: absolute;
+        margin-left: -15px; /*Está a 180 px de la izquierda a la derecha el checkbox*/
+        margin-top: -7px;
+        width: 20px;
+        height: 50%; /*100% Para que abarque toda la casilla del link(manuf, mrkt seg, prod, distri*/
+        opacity: 0; /*Para ocultar el checkbox 0 para que no se vea*/
+        cursor: pointer;
+    }
+    
+
+    .dropdown_content{
+        position: absolute;
+        display: grid;
+        grid-template-rows: var(--rows, 0fr); /* Creamos custom property "rows" y si no encuentra la custom property Ocultamos la sub lista del menu principal*/
+        transition: .3s grid-template-rows;
+        z-index: 10;
+    
+    
+        .dropdown_sub_main_menu{
+            border-radius: 10px;
+            overflow: hidden; /*todo lo que salga de este elemento se esconda*/
+            /*background-color: rgb(38, 40, 143); /*asignamos color a el contenedor de la sub lista dropdown*/
+        }
+    
+        .dropdown_sub_main_list{
+            left: 0;
+            list-style: none; /*le quitamos el estilo de lista*/
+            margin-left: auto; /*manda a la derecha los items*/
+            width: 150px;
+        }
+    
+        .dropdown_sub_item{
+            padding: .5em 10%;
+            display: block;
+            color: #FFFFFF;
+            text-decoration: none; /*quitamos la decoracion de los enlaces (subrayado)*/
+            background-color: #012060;
+        }
+    }
+
+    .toggle_btn{
+        color: #FFF;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+    }
+}
+
+.nabvarsubmenu:has( :checked){ /*Ponemos la condicion de que si un item del menu ha sido markado con check del checkbox*/
+    --rows: 1fr; /* creamos custom property "rows" para asignarle valor de 1 fracción para que se muestre el sub menu*/
+    --rotate: rotate(180deg); /*Cada que se seleccione el checkbox va a rotar la flecha (de apuntar hacia abajo a apuntar hacia arriba*/
+}
+
+
+.contact_btn{
+    color: #012060;
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale .2 ease;
+    text-decoration: none;
+}
+
+.contact_btn:hover{
+    scale: 1.05;
+    font-size: 0.9rem;
+}
+
+.contact_btn:active{
+    scale: 0.95;
+}
+
+/*NAVBAR DROPDOWN MENU*/
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    background: #012060;
+    backdrop-filter: blur(15px);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    .navbar_links{
+        display: flow-root;
+        gap: 2rem;
+    }
+
+    .navbar_links li{
+        padding: 0.7rem;
+        display: block;
+        margin-left: 10px;
+        margin-right: 10px;
+        list-style: none;
+    }
+    
+    .navbar_links a{
+        text-decoration: none;
+        color: #FFF;
+        font-size: 1rem;
+    }
+
+    .navbar_links i{
+        margin-left: auto; /*Pasamos flecha de sub menu hacia la derecha*/
+        transform: var(--rotate, 0); /*Creamos la custom property "rotate" para hacer que rote 180° la flecha del sub menu*/
+        transition: .2s transform;
+    }
+
+    .contact_btn{
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1em;
+    }
+
+    .navbar_links .dropdown_check{
+        position: absolute;
+        top: auto;
+        left: auto;
+        width: 20px;
+        height: 20px; /*100% Para que abarque toda la casilla del link(manuf, mrkt seg, prod, distri*/
+        opacity: 0; /*Para ocultar el checkbox 0 para que no se vea*/
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .dropdown_content{
+        position: static;
+        display: grid;
+        grid-template-rows: var(--rows, 0fr); /* Creamos custom property "rows" y si no encuentra la custom property Ocultamos la sub lista del menu principal*/
+        transition: .3s grid-template-rows;
+    
+    
+        .dropdown_sub_main_menu{
+            border-radius: 10px;
+            overflow: hidden; /*todo lo que salga de este elemento se esconda*/
+            /*background-color: rgb(38, 40, 143); /*asignamos color a el contenedor de la sub lista dropdown*/
+        }
+    
+        .dropdown_sub_main_list{
+            left: 0;
+            list-style: none; /*le quitamos el estilo de lista*/
+            margin-left: auto; /*manda a la derecha los items*/
+            width: auto;
+        }
+    
+        .dropdown_sub_item{
+            padding: 0;
+            display: block;
+            color: #FFFFFF;
+            text-decoration: none; /*quitamos la decoracion de los enlaces (subrayado)*/
+            background-color: #012060;
+        }
+    }
+}
+
+.dropdown_menu.open {
+    height: auto;
+    z-index: 10;
+}
+
+/*NAVBAR RESPONSIVE*/
+@media (max-width: 1100px) {
+    .navbar .navbar_links,
+    .navbar .contact_btn{
+        display: none;
+    }
+
+    .navbar .toggle_btn{
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+}
+
+@media (max-width: 500px) {
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+
+    .dropdown_menu li{
+        justify-content: center;
+    }
+}
+
+
+
+/* ------ Footer Section ------ */
+.footer{
+    width: auto;
+    background-size: cover;
+    padding: 100px 0;
+}
+
+.footer_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: auto;
+    margin-top: none;
+    background-color: #012060;
+}
+
+.footer_item{
+    display: flex; /*se ajustan los items al tamaño de la pagina*/
+    flex-direction: column; /*ponemos los items del footer en columnas*/
+    padding: 10px; /*distancia entre columnas*/
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.footer_item .footer_logo img{
+    width: 75px; /*tamaño de imagen*/
+    margin-left: 130px;
+}
+
+.footer_item .footer_terms{
+    max-width: 350px; /*tamaño max de los terms*/
+    margin-top: 20px; /*distancia entre logo y terms*/
+    font-weight: 500; /*letra de terms mas gruesa*/
+    color: #949494; /*color gris de texto terms*/
+    font-size: 13px;
+}
+
+.footer_item h2{
+    margin-bottom: 13px; /*separamos encabezado de opciones*/
+}
+
+.footer_item h2 a{
+    text-decoration: none; /*quitamos decoracion de link al texto de encabezados*/
+    color: #c3c3c3;
+    font-weight: 700; /*mas grueso*/
+    font-size: 15px;
+}
+
+.footer_item a{
+    margin-top: 7px; /*margen a las opciones de footer*/
+    text-decoration: none;/*quitamos decoracion de link*/
+    color: #949494;
+    font-weight: 500; /*mas grueso*/
+    font-size: 13px;
+}
+
+.footer_item a:hover{
+    opacity: 0.8; /*se opaca texto al pasar cursor en items del footer*/
+}
+
+.box_copyright{
+    max-width: 100%;
+    margin: auto;
+    background-color: #012060;
+    text-align: center;
+    color: #949494;
+    padding: 20px 0px;
+}
+
+
+/* ------------------------------------ */
+/* ------ MANUFACTURERS PAGE SECTION ------ */
+/* ------------------------------------ */
+.manufacturers_title{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Tree equal-width columns */
+    align-items: center;
+
+    .main_manufacturers{
+        margin-top: 20px;
+        margin-bottom: 40px;
+        justify-self: center;
+    }
+}
+/* Set the overall dimensions and margins for the accordion container */
+.principal_accordion {
+    width: auto;  /* The width automatically adjusts to the content or container width */
+    margin: 30px 50px;  /* Vertical and horizontal margins */
+}
+
+/* Style each list item within the accordion */
+.principal_accordion li {
+    list-style: none;  /* Removes bullet points from the list */
+    width: 100%;  /* Full width to fill the container */
+    margin-bottom: 10px;  /* Space between accordion items */
+    background: #fff;  /* White background for each item */
+    padding: 10px;  /* Padding inside each list item */
+    border-radius: 4px;  /* Rounded corners */
+}
+
+/* Style the labels which are used as the clickable headers for accordion items */
+.principal_accordion li label {
+    padding: 10px;  /* Padding inside the label */
+    display: flex;  /* Uses flexbox for layout */
+    flex-direction: column;
+    align-items: center;  /* Vertically centers the contents of the label */
+    cursor: pointer;  /* Changes cursor to indicate clickable area */
+    justify-content: space-between;
+    width: 100%;
+}
+
+.mxtitle {
+    font-size: 100px;
+    font-family: "Railway", sans-serif;
+    font-weight: 900;
+    color: #FFFFFF;
+    background-image: url(Media/mexico.png);
+    background-size: cover;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ustitle {
+    font-size: 100px;
+    font-family: "Railway", sans-serif;
+    font-weight: 900;
+    color: #FFFFFF;
+    background-image: url(Media/USA.png);
+    background-size: cover;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brtitle {
+    font-size: 100px;
+    font-family: "Railway", sans-serif;
+    font-weight: 900;
+    color: #FFFFFF;
+    background-image: url(Media/brazil.png);
+    background-size: cover;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.principal_accordion li label i{
+    transform: var(--rotate, 0);
+    transition: .2s transform;
+    font-size: 50px;
+    margin-top: -30px;
+    color: #012060;
+}
+
+/* Hide the checkboxes used for toggling the display of accordion content */
+.principal_accordion label + input[type="checkbox"] {
+    display: none;  /* Checkbox is not visually displayed */
+}
+
+/* Modify max-height when the checkbox is checked to reveal the content */
+.principal_accordion label + input[type="checkbox"]:checked ~ .principals_content {
+    max-height: 100%;  /* Large max-height to ensure all content is visible */
+}
+
+.principal_accordion li:has( :checked){
+    --rotate: rotate(180deg); /* Rotate the caret icon */
+}
+
+/* Grid layout for items within the accordion content */
+.principals_content {
+    padding: 20px;
+    max-height: 0;  /* Start with no height to hide content */
+    overflow: hidden;  /* Hides content that exceeds the max-height */
+    transition: max-height 0.1s ease;  /* Smooth transition effect for expanding/collapsing */
+    display: grid;  /* Enables grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  /* Responsive column setup */
+    gap: 20px;  /* Space between grid items */
+}
+
+.principal_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional styling for images within content items */
+.principal_logo img {
+    height: 150px; /* Set a fixed height for all images */
+    object-fit: fill; /* Ensures the image covers the area without being distorted */
+    width: 100%;  /* Full width of the grid cell */
+    border-radius: 5px;  /* Rounded corners for images */
+    border: 1px solid #ddd;  /* Subtle border for images */
+    transition: transform 0.3s;  /* Smooth transition for hover effects */
+}
+
+/* Hover effect to slightly enlarge images */
+.principal_logo img:hover {
+    transform: scale(1.1);  /* Scales up the image size */
+}
+
+.principal_info{
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Styling for the manufacturer or product name */
+.principal_name {
+    display: block;  /* Block display to occupy its own line */
+    margin-top: 10px;  /* Space above the name */
+    text-decoration: none;  /* No underlining */
+    color: #012060;  /* Black text */
+    font-weight: bold;  /* Bold text for emphasis */
+    font-size: 18px;
+    text-align: center;
+}
+
+.principal_description {
+    font-size: 14px;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .principals_content {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+}
+
+/* ----- RSPONSIVE ----- */
+/* Pantalla grande */
+@media (min-width: 1200px) {
+    /* --- MANUFACTURERS --- */
+
+}
+
+/* Pantalla mediana (tablet) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    /* --- MANUFACTURERS --- */
+    .mxtitle, .ustitle, .brtitle {
+        font-size: 80px; /* Slightly smaller font size for medium screens */
+    }
+    .principal_accordion li label i {
+        font-size: 40px; /* Smaller icon size for medium screens */
+    }
+}
+
+/* Pantalla pequeña (mobile) */
+@media (max-width: 767px) {
+    /* --- MANUFACTURERS --- */
+    .mxtitle, .ustitle, .brtitle {
+        font-size: 60px; /* Much smaller font size for small screens */
+    }
+    .principal_accordion li label i {
+        font-size: 30px; /* Much smaller icon size for small screens */
+        margin-top: -20px;
+    }
+}
