@@ -333,27 +333,26 @@ header{
 
 
 /* ------------------------------------ */
-/* ------ MANUFACTURERS PAGE SECTION ------ */
+/* ------ DISTRIBUTORS PAGE SECTION ------ */
 /* ------------------------------------ */
-.manufacturers_title{
+.distributors_title{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; /* Tree equal-width columns */
     align-items: center;
 
-    .main_manufacturers{
+    .main_distributors{
         margin-top: 20px;
         margin-bottom: 40px;
         justify-self: center;
     }
 }
-/* Set the overall dimensions and margins for the accordion container */
-.principal_accordion {
+
+.distributors_accordion{
     width: auto;  /* The width automatically adjusts to the content or container width */
     margin: 30px 50px;  /* Vertical and horizontal margins */
 }
 
-/* Style each list item within the accordion */
-.principal_accordion li {
+.distributors_accordion li{
     list-style: none;  /* Removes bullet points from the list */
     width: 100%;  /* Full width to fill the container */
     margin-bottom: 10px;  /* Space between accordion items */
@@ -362,8 +361,7 @@ header{
     border-radius: 4px;  /* Rounded corners */
 }
 
-/* Style the labels which are used as the clickable headers for accordion items */
-.principal_accordion li label {
+.distributors_accordion li label{
     padding: 10px;  /* Padding inside the label */
     display: flex;  /* Uses flexbox for layout */
     flex-direction: column;
@@ -373,6 +371,7 @@ header{
     width: 100%;
 }
 
+/* REPETIDO EN DISTRIBUTORS Y MANUFACTURERS */
 .mxtitle {
     font-size: 100px;
     font-family: "Railway", sans-serif;
@@ -406,7 +405,7 @@ header{
     -webkit-text-fill-color: transparent;
 }
 
-.principal_accordion li label i{
+.distributors_accordion li label i{
     transform: var(--rotate, 0);
     transition: .2s transform;
     font-size: 50px;
@@ -415,21 +414,21 @@ header{
 }
 
 /* Hide the checkboxes used for toggling the display of accordion content */
-.principal_accordion label + input[type="checkbox"] {
+.distributors_accordion label + input[type="checkbox"] {
     display: none;  /* Checkbox is not visually displayed */
 }
 
 /* Modify max-height when the checkbox is checked to reveal the content */
-.principal_accordion label + input[type="checkbox"]:checked ~ .principals_content {
+.distributors_accordion label + input[type="checkbox"]:checked ~ .distributors_content {
     max-height: 100%;  /* Large max-height to ensure all content is visible */
 }
 
-.principal_accordion li:has( :checked){
+.distributors_accordion li:has( :checked){
     --rotate: rotate(180deg); /* Rotate the caret icon */
 }
 
 /* Grid layout for items within the accordion content */
-.principals_content {
+.distributors_content {
     padding: 20px;
     max-height: 0;  /* Start with no height to hide content */
     overflow: hidden;  /* Hides content that exceeds the max-height */
@@ -439,7 +438,7 @@ header{
     gap: 20px;  /* Space between grid items */
 }
 
-.principal_card {
+.distributor_card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -450,7 +449,7 @@ header{
 }
 
 /* Additional styling for images within content items */
-.principal_logo img {
+.distributor_logo img {
     height: 150px; /* Set a fixed height for all images */
     object-fit: fill; /* Ensures the image covers the area without being distorted */
     width: 100%;  /* Full width of the grid cell */
@@ -460,18 +459,18 @@ header{
 }
 
 /* Hover effect to slightly enlarge images */
-.principal_logo img:hover {
+.distributor_logo img:hover {
     transform: scale(1.1);  /* Scales up the image size */
 }
 
-.principal_info{
+.distributor_info{
     padding: 10px;
     text-align: center;
     width: 100%;
 }
 
 /* Styling for the manufacturer or product name */
-.principal_name {
+.distributor_name {
     display: block;  /* Block display to occupy its own line */
     margin-top: 10px;  /* Space above the name */
     text-decoration: none;  /* No underlining */
@@ -481,16 +480,11 @@ header{
     text-align: center;
 }
 
-.principal_description {
+.distributor_description {
     font-size: 14px;
     color: #666;
 }
 
-@media (max-width: 768px) {
-    .principals_content {
-      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-    }
-}
 
 /* ----- RSPONSIVE ----- */
 /* Pantalla grande */
@@ -501,11 +495,11 @@ header{
 
 /* Pantalla mediana (tablet) */
 @media (min-width: 768px) and (max-width: 1199px) {
-    /* --- MANUFACTURERS --- */
+    /* --- DISTRIBUTORS --- */
     .mxtitle, .ustitle, .brtitle {
         font-size: 80px; /* Slightly smaller font size for medium screens */
     }
-    .principal_accordion li label i {
+    .distributors_accordion li label i {
         font-size: 40px; /* Smaller icon size for medium screens */
     }
 }
@@ -516,7 +510,7 @@ header{
     .mxtitle, .ustitle, .brtitle {
         font-size: 60px; /* Much smaller font size for small screens */
     }
-    .principal_accordion li label i {
+    .distributors_accordion li label i {
         font-size: 30px; /* Much smaller icon size for small screens */
         margin-top: -20px;
     }
