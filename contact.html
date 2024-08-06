@@ -79,7 +79,7 @@
             </div>
           </li>
           <li class="nabvarsubmenu">
-            <a href="products.html">PRODCUTS <i class="fa-solid fa-caret-down"></i><input type="checkbox" class="dropdown_check"></a>
+            <a href="products.html">PRODUCTS <i class="fa-solid fa-caret-down"></i><input type="checkbox" class="dropdown_check"></a>
             <div class="dropdown_content">
 
               <ul class="dropdown_sub_main_menu">
@@ -207,7 +207,7 @@
             </div>
           </li>
           <li class="nabvarsubmenu">
-            <a href="products.html">PRODCUTS <input type="checkbox" class="dropdown_check"><i class="fa-solid fa-caret-down"></i></a>
+            <a href="products.html">PRODUCTS <input type="checkbox" class="dropdown_check"><i class="fa-solid fa-caret-down"></i></a>
             <div class="dropdown_content">
 
               <ul class="dropdown_sub_main_menu">
@@ -291,7 +291,7 @@
   <!-- Contact Body -->
   <div class="contact_title">
     <br>
-    <h1>Get in Touch</h1>
+    <h1 class="main_contact">Get in Touch</h1>
     <br>
   </div>
   <div class="contact_box">
@@ -366,7 +366,9 @@
         <div class="contactBR">
           <h2>Brazil</h2>
           <ul>
+            <li class="spacer"></li> <!-- Espaciador invisible -->
             <li><i class="fa-solid fa-location-dot"></i> San Paulo</li>
+            <li class="spacer"></li> <!-- Espaciador invisible -->
           </ul>
           <div class="phoneInfo"><i class="fa-solid fa-phone"></i> +55 (22) 4688-1960</div>
         </div>
@@ -418,11 +420,11 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         // Crear el mapa y establecer la vista general
-        var map = L.map('mapid').setView([8.8742, -78.327], 3); // Coordenadas de Los Ángeles, zoom inicial
+        var map = L.map('mapid').setView([8.8742, -78.327], 3); // Coordenadas de zoom inicial
     
         // Agregar capa de mapa base de OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
+            maxZoom: 22,
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
     

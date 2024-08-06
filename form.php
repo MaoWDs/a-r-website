@@ -10,7 +10,7 @@ require 'PHPMailer/src/SMTP.php';
 
 // Configuración de reCAPTCHA
 $siteKey = '6LcjSg4qAAAAAPimJh6ZcQqcd8fRAHQ33gUlUb7v';
-$secretKey = '';
+$secretKey = '6LcjSg4qAAAAANEu0CyEkagbC2k1UI4pm1pp7B1f';
 
 // Verificar reCAPTCHA
 if (isset($_POST['g-recaptcha-response'])) {
@@ -52,8 +52,8 @@ try {
   $mail->isSMTP(); // Habilitamos el uso de SMTP
   $mail->Host = 'smtp.gmail.com'; // Dirección del servidor SMTP
   $mail->SMTPAuth = true; // Autenticación SMTP
-  $mail->Username = ''; // Usuario SMTP
-  $mail->Password = ''; // Contraseña SMTP
+  $mail->Username = 'munguiamauricio2898@gmail.com'; // Usuario SMTP
+  $mail->Password = 'qksfbmunggasyidd'; // Contraseña SMTP
   $mail->SMTPSecure = 'tls'; // Tipo de seguridad (tls o ssl)
   $mail->Port = 587; // Puerto del servidor SMTP
 

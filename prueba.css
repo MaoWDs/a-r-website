@@ -9,10 +9,10 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-image: url(Media/backgroundwebsite.png);
+    /*background-image: url(Media/backgroundwebsite.png);
     background-size: cover; /* Ajusta la imagen de fondo al tamaño de la vista */
-    background-position: center; /* Centra la imagen de fondo horizontal y verticalmente */
-    background-attachment: fixed; /* Fija la imagen de fondo en la vista del usuario */
+    /*background-position: center; /* Centra la imagen de fondo horizontal y verticalmente */
+    /*background-attachment: fixed; /* Fija la imagen de fondo en la vista del usuario */
     margin: 0; /* Elimina el margen del body */
   }
 
@@ -335,183 +335,103 @@ header{
 /* ------------------------------------ */
 /* ------ DISTRIBUTORS PAGE SECTION ------ */
 /* ------------------------------------ */
-.distributors_title{
+.marketseg_title{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; /* Tree equal-width columns */
     align-items: center;
 
-    .main_distributors{
+    .main_marketseg{
         margin-top: 20px;
         margin-bottom: 40px;
         justify-self: center;
+        color: #012060;
+        text-align: center;
     }
 }
-
-.distributors_accordion{
-    width: auto;  /* The width automatically adjusts to the content or container width */
+.marketseg_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid with minimum column size */
+    gap: 20px; /* Space between cards */
+    padding: 20px; /* Padding around the grid */
+    list-style: none; /* Removes default list styling */
     margin: 30px 50px;  /* Vertical and horizontal margins */
 }
 
-.distributors_accordion li{
-    list-style: none;  /* Removes bullet points from the list */
-    width: 100%;  /* Full width to fill the container */
-    margin-bottom: 10px;  /* Space between accordion items */
-    background: #fff;  /* White background for each item */
-    padding: 10px;  /* Padding inside each list item */
-    border-radius: 4px;  /* Rounded corners */
+.market_card {
+    background: #fff; /* White background for each card */
+    border: 1px solid #ddd; /* Light grey border around each card */
+    border-radius: 8px; /* Rounded corners for aesthetic */
+    overflow: hidden; /* Hides anything that goes outside the border-radius */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
 }
 
-.distributors_accordion li label{
-    padding: 10px;  /* Padding inside the label */
-    display: flex;  /* Uses flexbox for layout */
-    flex-direction: column;
-    align-items: center;  /* Vertically centers the contents of the label */
-    cursor: pointer;  /* Changes cursor to indicate clickable area */
-    justify-content: space-between;
-    width: 100%;
+.market_link {
+    display: block; /* Makes the link block to include both image and name */
+    text-decoration: none; /* Removes underline from links */
+    color: #333; /* Dark text for better readability */
 }
 
-/* REPETIDO EN DISTRIBUTORS Y MANUFACTURERS */
-.mxtitle {
-    font-size: 100px;
-    font-family: "Railway", sans-serif;
-    font-weight: 900;
-    color: #FFFFFF;
-    background-image: url(Media/mexico.png);
-    background-size: cover;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.ustitle {
-    font-size: 100px;
-    font-family: "Railway", sans-serif;
-    font-weight: 900;
-    color: #FFFFFF;
-    background-image: url(Media/USA.png);
-    background-size: cover;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.brtitle {
-    font-size: 100px;
-    font-family: "Railway", sans-serif;
-    font-weight: 900;
-    color: #FFFFFF;
-    background-image: url(Media/brazil.png);
-    background-size: cover;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.distributors_accordion li label i{
-    transform: var(--rotate, 0);
-    transition: .2s transform;
-    font-size: 50px;
-    margin-top: -30px;
-    color: #012060;
-}
-
-/* Hide the checkboxes used for toggling the display of accordion content */
-.distributors_accordion label + input[type="checkbox"] {
-    display: none;  /* Checkbox is not visually displayed */
-}
-
-/* Modify max-height when the checkbox is checked to reveal the content */
-.distributors_accordion label + input[type="checkbox"]:checked ~ .distributors_content {
-    max-height: 100%;  /* Large max-height to ensure all content is visible */
-}
-
-.distributors_accordion li:has( :checked){
-    --rotate: rotate(180deg); /* Rotate the caret icon */
-}
-
-/* Grid layout for items within the accordion content */
-.distributors_content {
-    padding: 20px;
-    max-height: 0;  /* Start with no height to hide content */
-    overflow: hidden;  /* Hides content that exceeds the max-height */
-    transition: max-height 0.1s ease;  /* Smooth transition effect for expanding/collapsing */
-    display: grid;  /* Enables grid layout */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  /* Responsive column setup */
-    gap: 20px;  /* Space between grid items */
-}
-
-.distributor_card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Additional styling for images within content items */
-.distributor_logo img {
+.market_link img {
     height: 150px; /* Set a fixed height for all images */
     object-fit: fill; /* Ensures the image covers the area without being distorted */
     width: 100%;  /* Full width of the grid cell */
-    border-radius: 5px;  /* Rounded corners for images */
-    border: 1px solid #ddd;  /* Subtle border for images */
-    transition: transform 0.3s;  /* Smooth transition for hover effects */
 }
 
-/* Hover effect to slightly enlarge images */
-.distributor_logo img:hover {
-    transform: scale(1.1);  /* Scales up the image size */
+.market_name {
+    display: block; /* Block display to handle its own line */
+    padding: 10px; /* Padding inside the name container */
+    background: rgba(0, 0, 0, 0.05); /* Slight background tint for the name section */
+    text-align: center; /* Centers the text horizontally */
+    font-size: 16px; /* Reasonable font size for names */
+    font-weight: bold; /* Bold font for emphasis */
 }
 
-.distributor_info{
-    padding: 10px;
-    text-align: center;
-    width: 100%;
+.market_details {
+    list-style: none; /* Removes list bullets */
+    padding: 10px; /* Padding inside the details list */
+    background: #FFFFFF; /* Lighter background for the details section */
+    column-count: 2; /* Splits the content into two columns */
+    column-gap: 20px; /* Space between columns */
 }
 
-/* Styling for the manufacturer or product name */
-.distributor_name {
-    display: block;  /* Block display to occupy its own line */
-    margin-top: 10px;  /* Space above the name */
-    text-decoration: none;  /* No underlining */
-    color: #012060;  /* Black text */
-    font-weight: bold;  /* Bold text for emphasis */
-    font-size: 18px;
-    text-align: center;
+.market_details li {
+    break-inside: avoid; /* Prevents items from being split across columns */
+    -webkit-column-break-inside: avoid; /* Chrome, Safari, older browsers */
+    page-break-inside: avoid; /* For pagination */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+    display: block; /* Makes sure the li fills the column width */
+    width: 100%; /* Ensures the li tags fill the columns completely */
 }
 
-.distributor_description {
-    font-size: 14px;
+.market_details li a {
+    text-decoration: none; /* Removes underline from links */
+    font-size: 12px;
     color: #666;
+    padding: 5px; /* Padding around links for easier clicking */
+    display: block; /* Ensures the link uses full width of its container */
+    margin-bottom: 5px; /* Adds space below each link for separation */
 }
 
 
 /* ----- RSPONSIVE ----- */
 /* Pantalla grande */
 @media (min-width: 1200px) {
-    /* --- MANUFACTURERS --- */
+    /* --- MARKET SEGMENTS --- */
 
 }
 
 /* Pantalla mediana (tablet) */
 @media (min-width: 768px) and (max-width: 1199px) {
-    /* --- DISTRIBUTORS --- */
-    .mxtitle, .ustitle, .brtitle {
-        font-size: 80px; /* Slightly smaller font size for medium screens */
-    }
-    .distributors_accordion li label i {
-        font-size: 40px; /* Smaller icon size for medium screens */
+    /* --- MARKET SEGMENTS --- */
+    .marketseg_grid {
+        margin: 30px 30px;  /* Vertical and horizontal margins */
     }
 }
 
 /* Pantalla pequeña (mobile) */
 @media (max-width: 767px) {
-    /* --- MANUFACTURERS --- */
-    .mxtitle, .ustitle, .brtitle {
-        font-size: 60px; /* Much smaller font size for small screens */
-    }
-    .distributors_accordion li label i {
-        font-size: 30px; /* Much smaller icon size for small screens */
-        margin-top: -20px;
+    /* --- MARKET SEGMENTS --- */
+    .marketseg_grid {
+        margin: 30px 0px;  /* Vertical and horizontal margins */
     }
 }
