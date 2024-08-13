@@ -271,6 +271,24 @@
       </div>
   </header>
   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const checkboxes = document.querySelectorAll('.dropdown_check');
+
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', function () {
+          if (checkbox.checked) {
+            // Deseleccionar todos los otros checkboxes
+            checkboxes.forEach((otherCheckbox) => {
+              if (otherCheckbox !== checkbox) {
+                otherCheckbox.checked = false;
+              }
+            });
+          }
+        });
+      });
+    });
+  </script>
+  <script>
     const toggleBtn = document.querySelector('.toggle_btn')
     const toggleBtnIcon = document.querySelector('.toggle_btn i')
     const dropDownMenu = document.querySelector('.dropdown_menu')
@@ -307,70 +325,130 @@
             <a class="distributor_logo" href="https://www.arrow.com/"><img src="./Media/arrow logo.png" alt="arrow Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>ARROW</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.avnet.com/"><img src="./Media/avnet logo.png" alt="avnet Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>AVNET</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.digikey.com/"><img src="./Media/digikey logo.png" alt="digikey Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>DIGIKEY</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.futureelectronics.com/"><img src="./Media/future logo.png" alt="future Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>FUTURE</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.heilind.com/"><img src="./Media/heilind logo.png" alt="heilind Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>HEILIND</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.mouser.com/"><img src="./Media/mouser logo.png" alt="mouser Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>MOUSER</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.newark.com/"><img src="./Media/newark logo.png" alt="newark Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>NEWARK</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.tti.com/"><img src="./Media/tti logo.png" alt="tti Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>TTinc</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://powell-electronics.eu/"><img src="./Media/powell logo.png" alt="powell Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>POWELL</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.rutronik.com/"><img src="./Media/rutronik logo.png" alt="rutronik Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>RUTRONIK</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="distributor_card">
+            <a class="distributor_logo" href="https://www.masterelectronics.com/en/"><img src="./Media/masterelectronics.png" alt="master Logo"></a>
+            <div class="distributor_info">
+              <a class="distributor_name" href="products.html"><b>MASTER ELECTRONICS</b></a>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="distributor_card">
+            <a class="distributor_logo" href="https://www.sager.com/"><img src="./Media/sager logo.png" alt="sager Logo"></a>
+            <div class="distributor_info">
+              <a class="distributor_name" href="products.html"><b>SAGER</b></a>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="distributor_card">
+            <a class="distributor_logo" href="https://www.symmetryelectronics.com/"><img src="./Media/symmetry logo.png" alt="symmetry Logo"></a>
+            <div class="distributor_info">
+              <a class="distributor_name" href="products.html"><b>SYMMETRY</b></a>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
         </ul>
@@ -386,70 +464,100 @@
             <a class="distributor_logo" href="https://www.arrow.com/"><img src="./Media/arrow logo.png" alt="arrow Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>ARROW</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.avnet.com/"><img src="./Media/avnet logo.png" alt="avnet Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>AVNET</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.digikey.com/"><img src="./Media/digikey logo.png" alt="digikey Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>DIGIKEY</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.futureelectronics.com/"><img src="./Media/future logo.png" alt="future Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>FUTURE</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.heilind.com/"><img src="./Media/heilind logo.png" alt="heilind Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>HEILIND</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.mouser.com/"><img src="./Media/mouser logo.png" alt="mouser Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>MOUSER</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.newark.com/"><img src="./Media/newark logo.png" alt="newark Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>NEWARK</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.tti.com/"><img src="./Media/tti logo.png" alt="tti Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>TTinc</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://powell-electronics.eu/"><img src="./Media/powell logo.png" alt="powell Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>POWELL</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.rutronik.com/"><img src="./Media/rutronik logo.png" alt="rutronik Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>RUTRONIK</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
         </ul>
@@ -465,70 +573,100 @@
             <a class="distributor_logo" href="https://www.arrow.com/"><img src="./Media/arrow logo.png" alt="arrow Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>ARROW</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.avnet.com/"><img src="./Media/avnet logo.png" alt="avnet Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>AVNET</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.digikey.com/"><img src="./Media/digikey logo.png" alt="digikey Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>DIGIKEY</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.futureelectronics.com/"><img src="./Media/future logo.png" alt="future Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>FUTURE</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.heilind.com/"><img src="./Media/heilind logo.png" alt="heilind Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>HEILIND</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.mouser.com/"><img src="./Media/mouser logo.png" alt="mouser Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>MOUSER</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.newark.com/"><img src="./Media/newark logo.png" alt="newark Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>NEWARK</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.tti.com/"><img src="./Media/tti logo.png" alt="tti Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>TTinc</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://powell-electronics.eu/"><img src="./Media/powell logo.png" alt="powell Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>POWELL</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
           <li class="distributor_card">
             <a class="distributor_logo" href="https://www.rutronik.com/"><img src="./Media/rutronik logo.png" alt="rutronik Logo"></a>
             <div class="distributor_info">
               <a class="distributor_name" href="products.html"><b>RUTRONIK</b></a>
-              <p class="distributor_description">Brief description of onsemi...</p>
+              <ul class="distributor_details">
+                <li><a href="#">Company Name</a></li>
+                <li><a href="#">Company Name</a></li>
+              </ul>
             </div>
           </li>
         </ul>

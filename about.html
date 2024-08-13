@@ -271,6 +271,24 @@
       </div>
   </header>
   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const checkboxes = document.querySelectorAll('.dropdown_check');
+
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', function () {
+          if (checkbox.checked) {
+            // Deseleccionar todos los otros checkboxes
+            checkboxes.forEach((otherCheckbox) => {
+              if (otherCheckbox !== checkbox) {
+                otherCheckbox.checked = false;
+              }
+            });
+          }
+        });
+      });
+    });
+  </script>
+  <script>
     const toggleBtn = document.querySelector('.toggle_btn')
     const toggleBtnIcon = document.querySelector('.toggle_btn i')
     const dropDownMenu = document.querySelector('.dropdown_menu')
@@ -313,7 +331,7 @@
         our past but also charts a course towards an even more brilliant future in the realm of electronics.
       </p>
       <h2 class="about_title">History</h2>
-      <p class="about_text">Since 9999, Ammon & Rizos has been a pioneering force in the electronics sector, 
+      <p class="about_text">Since 1998, Ammon & Rizos has been a pioneering force in the electronics sector, 
         epitomizing innovation and industry synergy. Our steadfast dedication to excellence has continuously 
         propelled us to the forefront of this dynamic and ever-evolving field.
       </p>

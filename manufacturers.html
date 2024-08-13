@@ -271,6 +271,24 @@
       </div>
   </header>
   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const checkboxes = document.querySelectorAll('.dropdown_check');
+
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', function () {
+          if (checkbox.checked) {
+            // Deseleccionar todos los otros checkboxes
+            checkboxes.forEach((otherCheckbox) => {
+              if (otherCheckbox !== checkbox) {
+                otherCheckbox.checked = false;
+              }
+            });
+          }
+        });
+      });
+    });
+  </script>
+  <script>
     const toggleBtn = document.querySelector('.toggle_btn')
     const toggleBtnIcon = document.querySelector('.toggle_btn i')
     const dropDownMenu = document.querySelector('.dropdown_menu')
@@ -307,64 +325,86 @@
             <a class="principal_logo" href="https://www.onsemi.com/"><img src="./Media/onsemi logo.png" alt="onsemi Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>ONSEMI</b></a>
-              <p class="principal_description">onsemi leads in intelligent technology solutions, offering power management, 
-                sensors, and connectivity for automotive, industrial, and consumer electronics, driving energy-efficient innovations.</p>
+              <ul class="principal_details">
+                <li><a href="#">Power management</a></li>
+                <li><a href="#">Sensors</a></li>
+                <li><a href="#">Connectivity solutions</a></li>
+                <li><a href="#">Wireless Connectivity</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.kyocera-avx.com/"><img src="./Media/kyocera avx logo.png" alt="kyocera Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>KYOCERA AVX</b></a>
-              <p class="principal_description">Kyocera AVX excels in electronic components, providing capacitors, antennas, 
-                sensors, and connectors for automotive, industrial, and consumer electronics, fostering connectivity and innovation.</p>
+              <ul class="principal_details">
+                <li><a href="#">Capacitors</a></li>
+                <li><a href="#">Antennas</a></li>
+                <li><a href="#">Sensors</a></li>
+                <li><a href="#">Connectors</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://automation.omron.com/"><img src="./Media/omron logo.png" alt="omron Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>OMRON</b></a>
-              <p class="principal_description">Omron specializes in automation and control technology, delivering solutions 
-                for industrial automation, healthcare, and electronic components, enhancing efficiency and smart technologies.</p>
+              <ul class="principal_details">
+                <li><a href="#">Power management</a></li>
+                <li><a href="#">Automation Systems</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.astrodynetdi.com/"><img src="./Media/astrodyne logo.png" alt="astrodyne Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>ASTRODYNE TDI</b></a>
-              <p class="principal_description">Astrodyne TDI offers power supplies, converters, and EMI filters for medical, 
-                industrial, and aerospace sectors, enhancing efficiency and performance with innovative solutions.</p>
+              <ul class="principal_details">
+                <li><a href="#">Power Supplies</a></li>
+                <li><a href="#">Converters</a></li>
+                <li><a href="#">EMI filters</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.chemi-con.co.jp/en/"><img src="./Media/chemi-con logo.png" alt="chemi-con Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>CHEMI-CON</b></a>
-              <p class="principal_description">Chemi-Con leads in capacitor technology, supplying aluminum electrolytic, 
-                polymer, and ceramic capacitors for automotive, industrial, and consumer electronics, ensuring reliability.</p>
+              <ul class="principal_details">
+                <li><a href="#">Aluminum electrolytic capacitors</a></li>
+                <li><a href="#">Polymer capacitors</a></li>
+                <li><a href="#">Ceramic capacitors</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.vexos.com/"><img src="./Media/vexos logo.png" alt="vexos Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>VEXOS</b></a>
-              <p class="principal_description">Vexos provides custom PCB assembly, supply chain management, and engineering 
-                support, serving medical, industrial, and automotive sectors with quality electronics manufacturing services.</p>
+              <ul class="principal_details">
+                <li><a href="#">Custom PCB assembly</a></li>
+                <li><a href="#">Supply chain management</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.vacuumschmelze.com/"><img src="./Media/vac logo.png" alt="vac Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>VACUUMSCHMELZE</b></a>
-              <p class="principal_description">VACUUMSCHMELZE specializes in magnetic materials and inductive components, 
-                offering solutions for automotive, industrial, and renewable energy sectors, driving energy efficiency.</p>
+              <ul class="principal_details">
+                <li><a href="#">Magnetic materials</a></li>
+                <li><a href="#">Inductive components</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://lumileds.com/"><img src="./Media/lumileds.png" alt="lumileds Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>LUMILEDS</b></a>
-              <p class="principal_description">Lumileds delivers innovative lighting solutions, including advanced LEDs 
-                and automotive lighting products, enhancing performance and energy efficiency in various applications.</p>
+              <ul class="principal_details">
+                <li><a href="#">LEDs</a></li>
+                <li><a href="#">Automotive lighting</a></li>
+              </ul>
             </div>
           </li>
         </ul>
@@ -380,80 +420,107 @@
             <a class="principal_logo" href="https://www.onsemi.com/"><img src="./Media/onsemi logo.png" alt="onsemi Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>ONSEMI</b></a>
-              <p class="principal_description">onsemi leads in intelligent technology solutions, offering power management, 
-                sensors, and connectivity for automotive, industrial, and consumer electronics, driving energy-efficient innovations.</p>
+              <ul class="principal_details">
+                <li><a href="#">Power management</a></li>
+                <li><a href="#">Sensors</a></li>
+                <li><a href="#">Connectivity solutions</a></li>
+                <li><a href="#">Wireless Connectivity</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.kyocera-avx.com/"><img src="./Media/kyocera avx logo.png" alt="kyocera Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>KYOCERA AVX</b></a>
-              <p class="principal_description">Kyocera AVX excels in electronic components, providing capacitors, antennas, 
-                sensors, and connectors for automotive, industrial, and consumer electronics, fostering connectivity and innovation.</p>
+              <ul class="principal_details">
+                <li><a href="#">Capacitors</a></li>
+                <li><a href="#">Antennas</a></li>
+                <li><a href="#">Sensors</a></li>
+                <li><a href="#">Connectors</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://automation.omron.com/"><img src="./Media/omron logo.png" alt="omron Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>OMRON</b></a>
-              <p class="principal_description">Omron specializes in automation and control technology, delivering solutions 
-                for industrial automation, healthcare, and electronic components, enhancing efficiency and smart technologies.</p>
+              <ul class="principal_details">
+                <li><a href="#">Power management</a></li>
+                <li><a href="#">Automation Systems</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://rfs.kyocera-avx.com/"><img src="./Media/american technical ceramics.png" alt="atc Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>AMERICAN TECHNICAL CERAMICS</b></a>
-              <p class="principal_description">American Technical Ceramics excels in high-performance RF, microwave, and 
-                millimeter-wave capacitors, supporting aerospace, telecommunications, and medical industries with reliable components.</p>
+              <ul class="principal_details">
+                <li><a href="#">Microwave</a></li>
+                <li><a href="#">Millimeter-wave capacitors</a></li>
+                <li><a href="#">RF</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.chemi-con.co.jp/en/"><img src="./Media/chemi-con logo.png" alt="chemi-con Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>CHEMI-CON</b></a>
-              <p class="principal_description">Chemi-Con leads in capacitor technology, supplying aluminum electrolytic, 
-                polymer, and ceramic capacitors for automotive, industrial, and consumer electronics, ensuring reliability.</p>
+              <ul class="principal_details">
+                <li><a href="#">Aluminum electrolytic capacitors</a></li>
+                <li><a href="#">Polymer capacitors</a></li>
+                <li><a href="#">Ceramic capacitors</a></li>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.vexos.com/"><img src="./Media/vexos logo.png" alt="vexos Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>VEXOS</b></a>
-              <p class="principal_description">Vexos provides custom PCB assembly, supply chain management, and engineering 
-                support, serving medical, industrial, and automotive sectors with quality electronics manufacturing services.</p>
+              <ul class="principal_details">
+                <li><a href="#">Custom PCB assembly</a></li>
+                <li><a href="#">Supply chain management</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.vacuumschmelze.com/"><img src="./Media/vac logo.png" alt="vac Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>VACUUMSCHMELZE</b></a>
-              <p class="principal_description">VACUUMSCHMELZE specializes in magnetic materials and inductive components, 
-                offering solutions for automotive, industrial, and renewable energy sectors, driving energy efficiency.</p>
+              <ul class="principal_details">
+                <li><a href="#">Magnetic materials</a></li>
+                <li><a href="#">Inductive components</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.conwire.com/"><img src="./Media/consolidated.png" alt="consolidated Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>CONSOLIDATED ELECTRONIC WIRE & CABLE</b></a>
-              <p class="principal_description">Consolidated Electronic Wire & Cable provides custom wire, cable, and assemblies 
-                for industrial, medical, and aerospace sectors, ensuring quality connections and performance.</p>
+              <ul class="principal_details">
+                <li><a href="#">Custom wire</a></li>
+                <li><a href="#">Cable & assemblies</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.kyocera-avx.com/products/antennas/"><img src="./Media/ethertronics.png" alt="ethertronics Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>ETHERTRONICS</b></a>
-              <p class="principal_description">Ethertronics specializes in advanced antenna solutions for mobile, Wi-Fi, and 
-                IoT applications, enhancing connectivity and performance across various industries.</p>
+              <ul class="principal_details">
+                <li><a href="#">Antennas mobile</a></li>
+                <li><a href="#">Antennas Wi-Fi</a></li>
+                <li><a href="#">Antennas IoT</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.semtech.com/products/circuit-protection/"><img src="./Media/semtech.png" alt="semtech Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>SEMTECH</b></a>
-              <p class="principal_description">Semtech leads in analog and mixed-signal semiconductors, offering power management, 
-                signal integrity, and IoT solutions, driving innovation in communications and industrial applications.</p>
+              <ul class="principal_details">
+                <li><a href="#">Power management</a></li>
+                <li><a href="#">Analog & mixed-signal semiconductors</a></li>
+                <li><a href="#">Signal integrity solutions</a></li>
+              </ul>
             </div>
           </li>
         </ul>
@@ -469,96 +536,128 @@
             <a class="principal_logo" href="https://www.onsemi.com/"><img src="./Media/onsemi logo.png" alt="onsemi Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>ONSEMI</b></a>
-              <p class="principal_description">onsemi leads in intelligent technology solutions, offering power management, 
-                sensors, and connectivity for automotive, industrial, and consumer electronics, driving energy-efficient innovations.</p>
+              <ul class="principal_details">
+                <li><a href="#">Power management</a></li>
+                <li><a href="#">Sensors</a></li>
+                <li><a href="#">Connectivity solutions</a></li>
+                <li><a href="#">Wireless Connectivity</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://lumileds.com/"><img src="./Media/lumileds.png" alt="lumileds Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>LUMILEDS</b></a>
-              <p class="principal_description">Lumileds delivers innovative lighting solutions, including advanced LEDs 
-                and automotive lighting products, enhancing performance and energy efficiency in various applications.</p>
+              <ul class="principal_details">
+                <li><a href="#">LEDs</a></li>
+                <li><a href="#">Automotive lighting</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.kyocera-avx.com/"><img src="./Media/kyocera avx logo.png" alt="kyocera Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>KYOCERA AVX</b></a>
-              <p class="principal_description">Kyocera AVX excels in electronic components, providing capacitors, antennas, 
-                sensors, and connectors for automotive, industrial, and consumer electronics, fostering connectivity and innovation.</p>
+              <ul class="principal_details">
+                <li><a href="#">Capacitors</a></li>
+                <li><a href="#">Antennas</a></li>
+                <li><a href="#">Sensors</a></li>
+                <li><a href="#">Connectors</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://automation.omron.com/"><img src="./Media/omron logo.png" alt="omron Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>OMRON</b></a>
-              <p class="principal_description">Omron specializes in automation and control technology, delivering solutions 
-                for industrial automation, healthcare, and electronic components, enhancing efficiency and smart technologies.</p>
+              <ul class="principal_details">
+                <li><a href="#">Power management</a></li>
+                <li><a href="#">Automation Systems</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.chemi-con.co.jp/en/"><img src="./Media/chemi-con logo.png" alt="chemi-con Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>CHEMI-CON</b></a>
-              <p class="principal_description">Chemi-Con leads in capacitor technology, supplying aluminum electrolytic, 
-                polymer, and ceramic capacitors for automotive, industrial, and consumer electronics, ensuring reliability.</p>
+              <ul class="principal_details">
+                <li><a href="#">Aluminum electrolytic capacitors</a></li>
+                <li><a href="#">Polymer capacitors</a></li>
+                <li><a href="#">Ceramic capacitors</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.astrodynetdi.com/"><img src="./Media/astrodyne logo.png" alt="astrodyne Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>ASTRODYNE TDI</b></a>
-              <p class="principal_description">Astrodyne TDI offers power supplies, converters, and EMI filters for medical, 
-                industrial, and aerospace sectors, enhancing efficiency and performance with innovative solutions.</p>
+              <ul class="principal_details">
+                <li><a href="#">Power Supplies</a></li>
+                <li><a href="#">Converters</a></li>
+                <li><a href="#">EMI filters</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.vexos.com/"><img src="./Media/vexos logo.png" alt="vexos Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>VEXOS</b></a>
-              <p class="principal_description">Vexos provides custom PCB assembly, supply chain management, and engineering 
-                support, serving medical, industrial, and automotive sectors with quality electronics manufacturing services.</p>
+              <ul class="principal_details">
+                <li><a href="#">Custom PCB assembly</a></li>
+                <li><a href="#">Supply chain management</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.vacuumschmelze.com/"><img src="./Media/vac logo.png" alt="vac Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>VACUUMSCHMELZE</b></a>
-              <p class="principal_description">VACUUMSCHMELZE specializes in magnetic materials and inductive components, 
-                offering solutions for automotive, industrial, and renewable energy sectors, driving energy efficiency.</p>
+              <ul class="principal_details">
+                <li><a href="#">Magnetic materials</a></li>
+                <li><a href="#">Inductive components</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="http://www.comairrotron.com/"><img src="./Media/comair rotron.png" alt="comair Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>COMAIR ROTRON</b></a>
-              <p class="principal_description">Comair Rotron provides high-performance cooling solutions, offering fans 
-                and blowers for industrial, medical, and telecom applications, ensuring optimal thermal management.</p>
+              <ul class="principal_details">
+                <li><a href="#">High-performance fans</a></li>
+                <li><a href="#">High-performance blowers</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.kdk.com/e/index.html"><img src="./Media/KDK" alt="kdk Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>KDK CORPORATION</b></a>
-              <p class="principal_description">KDK Corporation excels in ventilation and air quality solutions, providing 
-                advanced fans and air purifiers, enhancing performance and efficiency in residential and commercial environments.</p>
+              <ul class="principal_details">
+                <li><a href="#">Ventilation fans</a></li>
+                <li><a href="#">Air purifiers</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://www.marvell.com/"><img src="./Media/marvell.png" alt="marvell Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>MARVELL</b></a>
-              <p class="principal_description">Marvell leads in data infrastructure technology, offering innovative storage, 
-                networking, and security solutions for cloud, automotive, and enterprise applications.</p>
+              <ul class="principal_details">
+                <li><a href="#">Storage</a></li>
+                <li><a href="#">Security for data infrastructure</a></li>
+                <li><a href="#">Networking</a></li>
+              </ul>
             </div>
           </li>
           <li class="principal_card">
             <a class="principal_logo" href="https://trigoncomponents.com/"><img src="./Media/trigon.png" alt="trigon Logo"></a>
             <div class="principal_info">
               <a class="principal_name" href="products.html"><b>TRIGON COMPONENTS</b></a>
-              <p class="principal_description">Trigon Components provides high-quality electronic components, including 
-                transformers, inductors, and chokes, for automotive, industrial, and consumer electronics.</p>
+              <ul class="principal_details">
+                <li><a href="#">Transformers</a></li>
+                <li><a href="#">Inductors</a></li>
+                <li><a href="#">Chokes</a></li>
+              </ul>
             </div>
           </li>
         </ul>

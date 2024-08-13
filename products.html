@@ -79,7 +79,7 @@
           </div>
         </li>
         <li class="nabvarsubmenu">
-          <a href="products.html">PRODCUTS <i class="fa-solid fa-caret-down"></i><input type="checkbox" class="dropdown_check"></a>
+          <a href="products.html">PRODUCTS <i class="fa-solid fa-caret-down"></i><input type="checkbox" class="dropdown_check"></a>
           <div class="dropdown_content">
 
             <ul class="dropdown_sub_main_menu">
@@ -142,7 +142,7 @@
           </div>
         </li>
       </ul>
-      <a href="contact.html" class="contact_btn">CANTACT US</a>
+      <a href="contact.html" class="contact_btn">CONTACT US</a>
       <div class="toggle_btn">
         <i class="fa-solid fa-bars"></i>
       </div>
@@ -207,7 +207,7 @@
           </div>
         </li>
         <li class="nabvarsubmenu">
-          <a href="products.html">PRODCUTS <input type="checkbox" class="dropdown_check"><i class="fa-solid fa-caret-down"></i></a>
+          <a href="products.html">PRODUCTS <input type="checkbox" class="dropdown_check"><i class="fa-solid fa-caret-down"></i></a>
           <div class="dropdown_content">
 
             <ul class="dropdown_sub_main_menu">
@@ -270,9 +270,27 @@
           </div>
         </li>
       </ul>
-      <li><a href="contact.html" class="contact_btn">CANTACT US</a></li>
+      <li><a href="contact.html" class="contact_btn">CONTACT US</a></li>
     </div>
 </header>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const checkboxes = document.querySelectorAll('.dropdown_check');
+
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', function () {
+        if (checkbox.checked) {
+          // Deseleccionar todos los otros checkboxes
+          checkboxes.forEach((otherCheckbox) => {
+            if (otherCheckbox !== checkbox) {
+              otherCheckbox.checked = false;
+            }
+          });
+        }
+      });
+    });
+  });
+</script>
 <script>
   const toggleBtn = document.querySelector('.toggle_btn')
   const toggleBtnIcon = document.querySelector('.toggle_btn i')

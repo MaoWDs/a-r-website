@@ -274,6 +274,24 @@
       </div>
   </header>
   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const checkboxes = document.querySelectorAll('.dropdown_check');
+
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', function () {
+          if (checkbox.checked) {
+            // Deseleccionar todos los otros checkboxes
+            checkboxes.forEach((otherCheckbox) => {
+              if (otherCheckbox !== checkbox) {
+                otherCheckbox.checked = false;
+              }
+            });
+          }
+        });
+      });
+    });
+  </script>
+  <script>
     const toggleBtn = document.querySelector('.toggle_btn')
     const toggleBtnIcon = document.querySelector('.toggle_btn i')
     const dropDownMenu = document.querySelector('.dropdown_menu')
@@ -337,12 +355,14 @@
     <div class="contact info">
       <div class="infoSelect">
         <h3>Contact Info</h3>
-        <img src="./Media/mexico.png">
-        <input class="contactInfoCheck" type="checkbox">
-        <img src="./Media/USA.png">
-        <input class="contactInfoCheck" type="checkbox">
-        <img src="./Media/brazil.png">
-        <input class="contactInfoCheck" type="checkbox">
+        <div class="region_container">
+          <img src="./Media/mexico.png">
+          <input class="contactInfoCheck" type="checkbox">
+          <img src="./Media/USA.png">
+          <input class="contactInfoCheck" type="checkbox">
+          <img src="./Media/brazil.png">
+          <input class="contactInfoCheck" type="checkbox">
+        </div>
       </div>
       <div class="infoBox">
         <div class="contactMX">
@@ -378,9 +398,9 @@
       const checkboxes = document.querySelectorAll('.contactInfoCheck');
       const contactDivs = document.querySelectorAll('.infoBox > div');
       const images = document.querySelectorAll('.infoSelect img'); // Asume que cada .contactInfoCheck está cerca de una img
-    
+
       contactDivs[0].style.display = 'block';
-    
+
       // Agrega un evento de cambio a cada checkbox
       checkboxes.forEach((checkbox, index) => {
         checkbox.addEventListener('change', () => {
@@ -388,12 +408,12 @@
           contactDivs.forEach((div) => {
             div.style.display = 'none';
           });
-    
+
           // Muestra el div de contacto correspondiente al checkbox seleccionado
           if (checkbox.checked) {
             contactDivs[index].style.display = 'block';
           }
-    
+
           // Desmarca los demás checkboxes
           checkboxes.forEach((otherCheckbox) => {
             if (otherCheckbox !== checkbox) {
@@ -401,13 +421,19 @@
             }
           });
         });
-    
+
         // Agrega eventos de mouseover y mouseout para cambiar el tamaño de la imagen
         checkbox.addEventListener('mouseover', () => {
           images[index].style.width = '45px'; // Tamaño más grande
           images[index].style.height = '35px';
+
+          // Marca el checkbox cuando el mouse está sobre él
+          checkbox.checked = true;
+
+          // Dispara el evento de cambio para aplicar la lógica de mostrar/ocultar divs
+          checkbox.dispatchEvent(new Event('change'));
         });
-    
+
         checkbox.addEventListener('mouseout', () => {
           images[index].style.width = '40px'; // Tamaño original
           images[index].style.height = '30px';

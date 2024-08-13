@@ -9,29 +9,24 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    /*background-image: url(Media/backgroundwebsite.png);
-    background-size: cover; /* Ajusta la imagen de fondo al tamaño de la vista */
-    /*background-position: center; /* Centra la imagen de fondo horizontal y verticalmente */
-    /*background-attachment: fixed; /* Fija la imagen de fondo en la vista del usuario */
     margin: 0; /* Elimina el margen del body */
   }
 
-/* ------ Navigation Bar ------ */
+/* ------------------------------------ */
+/* ------ NAVIGATION BAR SECTION ------ */
+/* ------------------------------------ */
 .navbar_links a:hover{
     font-size: 1.01rem;
     font-weight: bold;
 }
-
 header{
     position: relative;
     padding: 0 2rem;
     background-color: #012060
 }
-
 .navbar{
     width: 100%;
     height: 60px;
-    /*max-width: 1200px;*/
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -40,39 +35,32 @@ header{
     .navbar_logo a{
         background-color: #012060; /*Fondo de logo ar azul*/
     }
-
     .navbar_links{
         display: flex;
         gap: 2rem;
     }
-
     .navbar_links li{
         list-style: none;
     }
-    
     .navbar_links a{
         text-decoration: none;
         color: #FFF;
         font-size: 1rem;
     }
-
     .navbar_links i{
         margin-left: auto; /*Pasamos flecha de sub menu hacia la derecha*/
         transform: var(--rotate, 0); /*Creamos la custom property "rotate" para hacer que rote 180° la flecha del sub menu*/
         transition: .2s transform;
     }
-
     .navbar_links .dropdown_check{
         position: absolute;
-        margin-left: -15px; /*Está a 180 px de la izquierda a la derecha el checkbox*/
-        margin-top: -7px;
-        width: 20px;
+        margin-left: -20px; /*Está a 180 px de la izquierda a la derecha el checkbox*/
+        margin-top: -6px;
+        width: 30px;
         height: 50%; /*100% Para que abarque toda la casilla del link(manuf, mrkt seg, prod, distri*/
         opacity: 0; /*Para ocultar el checkbox 0 para que no se vea*/
         cursor: pointer;
     }
-    
-
     .dropdown_content{
         position: absolute;
         display: grid;
@@ -80,20 +68,17 @@ header{
         transition: .3s grid-template-rows;
         z-index: 10;
     
-    
         .dropdown_sub_main_menu{
             border-radius: 10px;
             overflow: hidden; /*todo lo que salga de este elemento se esconda*/
             /*background-color: rgb(38, 40, 143); /*asignamos color a el contenedor de la sub lista dropdown*/
         }
-    
         .dropdown_sub_main_list{
             left: 0;
             list-style: none; /*le quitamos el estilo de lista*/
             margin-left: auto; /*manda a la derecha los items*/
-            width: 150px;
+            width: 170px;
         }
-    
         .dropdown_sub_item{
             padding: .5em 10%;
             display: block;
@@ -102,7 +87,6 @@ header{
             background-color: #012060;
         }
     }
-
     .toggle_btn{
         color: #FFF;
         font-size: 1.5rem;
@@ -110,13 +94,10 @@ header{
         display: none;
     }
 }
-
 .nabvarsubmenu:has( :checked){ /*Ponemos la condicion de que si un item del menu ha sido markado con check del checkbox*/
     --rows: 1fr; /* creamos custom property "rows" para asignarle valor de 1 fracción para que se muestre el sub menu*/
     --rotate: rotate(180deg); /*Cada que se seleccione el checkbox va a rotar la flecha (de apuntar hacia abajo a apuntar hacia arriba*/
 }
-
-
 .contact_btn{
     color: #012060;
     background-color: #fff;
@@ -130,12 +111,10 @@ header{
     transition: scale .2 ease;
     text-decoration: none;
 }
-
 .contact_btn:hover{
     scale: 1.05;
     font-size: 0.9rem;
 }
-
 .contact_btn:active{
     scale: 0.95;
 }
@@ -157,7 +136,6 @@ header{
         display: flow-root;
         gap: 2rem;
     }
-
     .navbar_links li{
         padding: 0.7rem;
         display: block;
@@ -165,19 +143,16 @@ header{
         margin-right: 10px;
         list-style: none;
     }
-    
     .navbar_links a{
         text-decoration: none;
         color: #FFF;
         font-size: 1rem;
     }
-
     .navbar_links i{
         margin-left: auto; /*Pasamos flecha de sub menu hacia la derecha*/
         transform: var(--rotate, 0); /*Creamos la custom property "rotate" para hacer que rote 180° la flecha del sub menu*/
         transition: .2s transform;
     }
-
     .contact_btn{
         width: 90%;
         display: flex;
@@ -185,7 +160,6 @@ header{
         align-items: center;
         margin: 1em;
     }
-
     .navbar_links .dropdown_check{
         position: absolute;
         top: auto;
@@ -195,28 +169,26 @@ header{
         opacity: 0; /*Para ocultar el checkbox 0 para que no se vea*/
         cursor: pointer;
         z-index: 2;
+        transform: scale(1.8);
+        margin-left: -2px;
     }
-
     .dropdown_content{
         position: static;
         display: grid;
         grid-template-rows: var(--rows, 0fr); /* Creamos custom property "rows" y si no encuentra la custom property Ocultamos la sub lista del menu principal*/
         transition: .3s grid-template-rows;
     
-    
         .dropdown_sub_main_menu{
             border-radius: 10px;
             overflow: hidden; /*todo lo que salga de este elemento se esconda*/
             /*background-color: rgb(38, 40, 143); /*asignamos color a el contenedor de la sub lista dropdown*/
         }
-    
         .dropdown_sub_main_list{
             left: 0;
             list-style: none; /*le quitamos el estilo de lista*/
             margin-left: auto; /*manda a la derecha los items*/
             width: auto;
         }
-    
         .dropdown_sub_item{
             padding: 0;
             display: block;
@@ -226,39 +198,10 @@ header{
         }
     }
 }
-
 .dropdown_menu.open {
     height: auto;
     z-index: 10;
 }
-
-/*NAVBAR RESPONSIVE*/
-@media (max-width: 1100px) {
-    .navbar .navbar_links,
-    .navbar .contact_btn{
-        display: none;
-    }
-
-    .navbar .toggle_btn{
-        display: block;
-    }
-
-    .dropdown_menu{
-        display: block;
-    }
-}
-
-@media (max-width: 500px) {
-    .dropdown_menu{
-        left: 2rem;
-        width: unset;
-    }
-
-    .dropdown_menu li{
-        justify-content: center;
-    }
-}
-
 
 
 /* ------ Footer Section ------ */
@@ -334,44 +277,33 @@ header{
     justify-content: center;
     align-items: center;
     /* Alinea verticalmente los elementos */
-    height: 100vh;
+    height: 80vh;
     position: relative;
 
     .main-text {
         font-size: 5.2rem !important;
         font-weight: 900;
-        background-image: url("Media/mainarbackground.jpg");
-        background-size: cover;
-        object-fit: cover;
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
+        color: #012060;
         line-height: 1;
-        margin-top: -30vh;
+        margin-top: 0;
     }
 }
 .flag-country {
     display: flex;
-    justify-content: center;
-    margin-top: 60px; /* Agrega un margen superior para separar del texto */
-  
+    justify-content: space-between;
+    margin-top: 60px;
+    width: 70%;
+
   .image {
-    width: 75px;
-    height: 45px;
-    margin: 0 20px; /* Agrega un margen horizontal para separar las imágenes */
+    width: 130px;
+    height: 80px;
   }
 }
 .changing-text {
     font-size: 30px;
     font-weight: 900;
     margin-top: 10%;
-    /* Elimina el margen superior */
-    background-image: url("Media/mainarbackground.jpg");
-    background-size: cover;
-    object-fit: cover;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    color: #012060;
     line-height: 1;
     padding: 10px 0 10px 0;
 
@@ -789,16 +721,40 @@ header{
 /* Styling for the manufacturer or product name */
 .principal_name {
     display: block;  /* Block display to occupy its own line */
-    margin-top: 10px;  /* Space above the name */
+    padding: 10px;
     text-decoration: none;  /* No underlining */
     color: #012060;  /* Black text */
+    background: rgba(0, 0, 0, 0.05); /* Slight background tint for the name section */
     font-weight: bold;  /* Bold text for emphasis */
     font-size: 18px;
     text-align: center;
 }
-.principal_description {
+.principal_details {
+    list-style: none; /* Removes list bullets */
+    padding: 10px; /* Padding inside the details list */
+    background: #FFFFFF; /* Lighter background for the details section */
+    column-count: 2; /* Splits the content into two columns */
+    column-gap: 20px; /* Space between columns */
+}
+.principal_details li {
+    break-inside: avoid; /* Prevents items from being split across columns */
+    -webkit-column-break-inside: avoid; /* Chrome, Safari, older browsers */
+    page-break-inside: avoid; /* For pagination */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+    display: block; /* Makes sure the li fills the column width */
+    width: 100%; /* Ensures the li tags fill the columns completely */
+}
+.principal_details li a {
+    text-decoration: none; /* Removes underline from links */
     font-size: 12px;
     color: #666;
+    padding: 5px; /* Padding around links for easier clicking */
+    display: block; /* Ensures the link uses full width of its container */
+}
+.principal_details li a:hover {
+    color: #000;
+    font-size: 13px;
+    font-weight: bold; 
 }
 
 /* ------------------------------------ */
@@ -896,16 +852,40 @@ header{
 /* Styling for the manufacturer or product name */
 .distributor_name {
     display: block;  /* Block display to occupy its own line */
-    margin-top: 10px;  /* Space above the name */
+    padding: 10px;
     text-decoration: none;  /* No underlining */
     color: #012060;  /* Black text */
+    background: rgba(0, 0, 0, 0.05); /* Slight background tint for the name section */
     font-weight: bold;  /* Bold text for emphasis */
     font-size: 18px;
     text-align: center;
 }
-.distributor_description {
-    font-size: 14px;
+.distributor_details {
+    list-style: none; /* Removes list bullets */
+    padding: 10px; /* Padding inside the details list */
+    background: #FFFFFF; /* Lighter background for the details section */
+    column-count: 2; /* Splits the content into two columns */
+    column-gap: 20px; /* Space between columns */
+}
+.distributor_details li {
+    break-inside: avoid; /* Prevents items from being split across columns */
+    -webkit-column-break-inside: avoid; /* Chrome, Safari, older browsers */
+    page-break-inside: avoid; /* For pagination */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+    display: block; /* Makes sure the li fills the column width */
+    width: 100%; /* Ensures the li tags fill the columns completely */
+}
+.distributor_details li a {
+    text-decoration: none; /* Removes underline from links */
+    font-size: 12px;
     color: #666;
+    padding: 5px; /* Padding around links for easier clicking */
+    display: block; /* Ensures the link uses full width of its container */
+}
+.distributor_details li a:hover {
+    color: #000;
+    font-size: 13px;
+    font-weight: bold; 
 }
 
 /* ------------------------------------ */
@@ -1085,21 +1065,24 @@ header{
             flex-wrap: wrap;
             align-items: start;
           }
-
-          .infoSelect img {
-            top: 50px;
+          .region_container{
+            display: flex;
+            flex-direction: column;
+          }
+          .region_container img {
+            top: 20px;
             width: 40px; /* ajusta el tamaño de la imagen */
             height: 30px;
             margin: 0px;
             position: relative; /* posición relativa para que se pueda superponer el checkbox */
           }
           
-          .infoSelect .contactInfoCheck{
-            width: 50px; /* ajusta el tamaño de la imagen */
-            height: 40px;
+          .region_container .contactInfoCheck{
+            width: 60px; /* ajusta el tamaño de la imagen */
+            height: 60px;
             position: relative; /* posición absoluta para que se superponga a la imagen */
             left: -5px; /* ajusta la posición del checkbox a la izquierda de la imagen */
-            top: 10px; /* ajusta la posición del checkbox a la parte superior de la imagen */
+            top: -16px; /* ajusta la posición del checkbox a la parte superior de la imagen */
             opacity: 0;
             cursor: pointer;
             }
@@ -1164,25 +1147,6 @@ header{
         grid-area: map;
     }   
 }
-/*@media (min-width: 1040px) { 
-    .contact_box {
-        grid-template-columns: 2fr 1.3fr; 
-        grid-template-rows: auto auto;
-        grid-template-areas: 
-        "form info"
-        "form map";
-        margin-left: 40px; 
-        margin-right: 40px; 
-        width: calc(100% - 60px); 
-    }
-    .contact_box .formBox .row100 .inputBox input {
-        max-width: 200px; 
-    }
-    .contact_box .infoBox h2, .contact_box .infoBox ul {
-        margin-left: 50px; 
-    }
-}*/
-
 
 /* ------------------------------------ */
 /* ------ RESPONSIVE ------ */
@@ -1258,6 +1222,17 @@ header{
 
 /* Pantalla mediana (tablet) */
 @media (min-width: 768px) and (max-width: 1199px) {
+    /* --- NAVBAR --- */
+    .navbar .navbar_links,
+    .navbar .contact_btn{
+        display: none;
+    }
+    .navbar .toggle_btn{
+        display: block;
+    }
+    .dropdown_menu{
+        display: block;
+    }
     /* --- HOME --- */
     .main-text {
         font-size: 4.5rem !important;
@@ -1265,7 +1240,14 @@ header{
     .changing-text {
         font-size: 28px;
     }
-    
+    .flag-country{
+        width: 70%;
+        
+        .image {
+            width: 100px;
+            height: 65px;
+        }
+    }
     .home-cards{
         display: block;
         height: auto;
@@ -1334,16 +1316,22 @@ header{
         width: auto;
     }
     .infoSelect {
+        flex-direction: column !important;
+    }
+    .region_container{
+        display: flex;
+        flex-direction: row !important; /* Alinea las imágenes horizontalmente */
+        justify-content: space-between; /* Espacia las imágenes uniformemente */
+        width: 100%; /* Opcional, ajusta según el ancho deseado para las imágenes */
+    }
+    .region_container img{
         flex-direction: row !important;
-        
+        top: 8px !important;
+        justify-content: center;
     }
-    .infoSelect img{
-        top: -10px !important;
-        margin-left: 70px !important;
-    }
-    .infoSelect .contactInfoCheck{
-        top: -10px !important;
-        left: -45px !important;
+    .region_container .contactInfoCheck{
+        top: 0px !important;
+        left: -19% !important;
     }
     .infoBox{
         display: flex !important;
@@ -1375,12 +1363,39 @@ header{
 
 /* Pantalla pequeña (mobile) */
 @media (max-width: 767px) {
+    /* --- NAVBAR --- */
+    .navbar .navbar_links,
+    .navbar .contact_btn{
+        display: none;
+    }
+    .navbar .toggle_btn{
+        display: block;
+    }
+    .dropdown_menu{
+        display: block;
+    }
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+    .dropdown_menu li{
+        justify-content: center;
+        text-align: center;
+    }
     /* --- HOME --- */
     .main-text {
         font-size: 3.5rem !important;
     }
     .changing-text {
         font-size: 22px;
+    }
+    .flag-country{
+        width: 85%;
+        
+        .image {
+            width: 80px;
+            height: 45px;
+        }
     }
     .home-cards{
         display: block;
@@ -1466,7 +1481,7 @@ header{
         margin-top: -20px;
     }
     .principals_content {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));  /* Responsive column setup */
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));  /* Responsive column setup */
     }
     /* --- DISTRIBUTORS --- */
     .distributors_accordion li label i {
@@ -1492,16 +1507,24 @@ header{
         width: auto;
     }
     .infoSelect {
-        flex-direction: row !important;
+        flex-direction: column !important;
         
     }
-    .infoSelect img{
-        top: -10px !important;
-        margin-left: auto !important;
+    .region_container{
+        display: flex;
+        flex-direction: row !important; /* Alinea las imágenes horizontalmente */
+        justify-content: space-between; /* Espacia las imágenes uniformemente */
+        width: 100%; /* Opcional, ajusta según el ancho deseado para las imágenes */
     }
-    .infoSelect .contactInfoCheck{
-        top: -10px !important;
-        left: -45px !important;
+    .region_container img{
+        flex-direction: row !important;
+        top: 8px !important;
+        margin-left: 0px !important;
+        justify-content: center;
+    }
+    .region_container .contactInfoCheck{
+        top: 0px !important;
+        left: -18% !important;
     }
     .infoBox{
         display: flex !important;

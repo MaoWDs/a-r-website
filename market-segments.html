@@ -271,6 +271,24 @@
       </div>
   </header>
   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const checkboxes = document.querySelectorAll('.dropdown_check');
+
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', function () {
+          if (checkbox.checked) {
+            // Deseleccionar todos los otros checkboxes
+            checkboxes.forEach((otherCheckbox) => {
+              if (otherCheckbox !== checkbox) {
+                otherCheckbox.checked = false;
+              }
+            });
+          }
+        });
+      });
+    });
+  </script>
+  <script>
     const toggleBtn = document.querySelector('.toggle_btn')
     const toggleBtnIcon = document.querySelector('.toggle_btn i')
     const dropDownMenu = document.querySelector('.dropdown_menu')
@@ -299,8 +317,11 @@
         <div class="market_name">Automotive & Transportation</div>
       </a>
       <ul class="market_details">
-        <li><a href="link-to-component.html">Component 1</a></li>
-        <li><a href="link-to-component.html">Component 2</a></li>
+        <li><a href="#">Power Management</a></li>
+        <li><a href="#">Sensors</a></li>
+        <li><a href="#">Automotive Ethernet</a></li>
+        <li><a href="#">LED Lighting</a></li>
+        <li><a href="#">Capacitors</a></li>
       </ul>
     </li>
     <li class="market_card">
@@ -309,8 +330,12 @@
         <div class="market_name">Industrial</div>
       </a>
       <ul class="market_details">
-        <li><a href="link-to-component.html">Component 1</a></li>
-        <li><a href="link-to-component.html">Component 2</a></li>
+        <li><a href="#">Relays</a></li>
+        <li><a href="#">Switches</a></li>
+        <li><a href="#">Sensors</a></li>
+        <li><a href="#">AC/DC Power Supplies</a></li>
+        <li><a href="#">RFID Solutions</a></li>
+        <li><a href="#">Motors and Drives</a></li>
       </ul>
     </li>
     <li class="market_card">
@@ -319,8 +344,12 @@
         <div class="market_name">Energy</div>
       </a>
       <ul class="market_details">
-        <li><a href="link-to-component.html">Component 1</a></li>
-        <li><a href="link-to-component.html">Component 2</a></li>
+        <li><a href="#">Power Converters</a></li>
+        <li><a href="#">Power Inverters</a></li>
+        <li><a href="#">Energy Storage Capacitors</a></li>
+        <li><a href="#">Magnetic Cores</a></li>
+        <li><a href="#">High Voltage Capacitors</a></li>
+        <li><a href="#">Battery Management Systems</a></li>
       </ul>
     </li>
     <li class="market_card">
@@ -329,8 +358,11 @@
         <div class="market_name">Lighting</div>
       </a>
       <ul class="market_details">
-        <li><a href="link-to-component.html">Component 1</a></li>
-        <li><a href="link-to-component.html">Component 2</a></li>
+        <li><a href="#">LEDs</a></li>
+        <li><a href="#">Drivers and Controllers</a></li>
+        <li><a href="#">Smart Lighting Modules</a></li>
+        <li><a href="#">Thermal Management Solutions</a></li>
+        <li><a href="#">Power Supplies</a></li>
       </ul>
     </li>
     <li class="market_card">
@@ -339,8 +371,11 @@
         <div class="market_name">Communications</div>
       </a>
       <ul class="market_details">
-        <li><a href="link-to-component.html">Component 1</a></li>
-        <li><a href="link-to-component.html">Component 2</a></li>
+        <li><a href="#">RF Components</a></li>
+        <li><a href="#">Ethernet Switches</a></li>
+        <li><a href="#">Optical Transceivers</a></li>
+        <li><a href="#">Signal Integrity Solutions</a></li>
+        <li><a href="#">Wi-Fi and Cellular Antennas</a></li>
       </ul>
     </li>
     <li class="market_card">
@@ -349,8 +384,12 @@
         <div class="market_name">Healthcare</div>
       </a>
       <ul class="market_details">
-        <li><a href="link-to-component.html">Component 1</a></li>
-        <li><a href="link-to-component.html">Component 2</a></li>
+        <li><a href="#">Medical Power Supplies</a></li>
+        <li><a href="#">EMI Filters</a></li>
+        <li><a href="#">Sensors</a></li>
+        <li><a href="#">Capacitors</a></li>
+        <li><a href="#">PCB Assemblies</a></li>
+        <li><a href="#">Battery Management Systems</a></li>
       </ul>
     </li>
     <li class="market_card">
@@ -359,8 +398,12 @@
         <div class="market_name">Internet of Things</div>
       </a>
       <ul class="market_details">
-        <li><a href="link-to-component.html">Component 1</a></li>
-        <li><a href="link-to-component.html">Component 2</a></li>
+        <li><a href="#">Low Power MCUs</a></li>
+        <li><a href="#">Wireless Modules</a></li>
+        <li><a href="#">Sensors</a></li>
+        <li><a href="#">Power Management ICs</a></li>
+        <li><a href="#">Security Solutions</a></li>
+        <li><a href="#">Antennas</a></li>
       </ul>
     </li>
     <li class="market_card">
@@ -369,8 +412,12 @@
         <div class="market_name">Security</div>
       </a>
       <ul class="market_details">
-        <li><a href="link-to-component.html">Component 1</a></li>
-        <li><a href="link-to-component.html">Component 2</a></li>
+        <li><a href="#">Motion Sensors</a></li>
+        <li><a href="#">Encryption ICs</a></li>
+        <li><a href="#">Biometric Sensors</a></li>
+        <li><a href="#">Security Controllers</a></li>
+        <li><a href="#">RFID Modules</a></li>
+        <li><a href="#">NFC Modules</a></li>
       </ul>
     </li>
     <li class="market_card">
@@ -379,8 +426,11 @@
         <div class="market_name">Oil & Gas</div>
       </a>
       <ul class="market_details">
-        <li><a href="link-to-component.html">Component 1</a></li>
-        <li><a href="link-to-component.html">Component 2</a></li>
+        <li><a href="#">Harsh Environment Sensors</a></li>
+        <li><a href="#">EMI Filters</a></li>
+        <li><a href="#">Power Supplies</a></li>
+        <li><a href="#">Industrial Connectors</a></li>
+        <li><a href="#">Telemetry Modules</a></li>
       </ul>
     </li>
     <li class="market_card">
@@ -389,8 +439,11 @@
         <div class="market_name">Defense & Aerospace</div>
       </a>
       <ul class="market_details">
-        <li><a href="link-to-component.html">Component 1</a></li>
-        <li><a href="link-to-component.html">Component 2</a></li>
+        <li><a href="#">High-Reliability Capacitors</a></li>
+        <li><a href="#">Rugged Connectors</a></li>
+        <li><a href="#">Advanced RF Components</a></li>
+        <li><a href="#">Power Converters</a></li>
+        <li><a href="#">Magnetic Materials</a></li>
       </ul>
     </li>
   </ul>

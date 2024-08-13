@@ -270,6 +270,24 @@
       </div>
   </header>
   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const checkboxes = document.querySelectorAll('.dropdown_check');
+
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', function () {
+          if (checkbox.checked) {
+            // Deseleccionar todos los otros checkboxes
+            checkboxes.forEach((otherCheckbox) => {
+              if (otherCheckbox !== checkbox) {
+                otherCheckbox.checked = false;
+              }
+            });
+          }
+        });
+      });
+    });
+  </script>
+  <script>
     const toggleBtn = document.querySelector('.toggle_btn')
     const toggleBtnIcon = document.querySelector('.toggle_btn i')
     const dropDownMenu = document.querySelector('.dropdown_menu')
@@ -287,9 +305,9 @@
     <div class="home_img">
       <span class="main-text">Ammon & Rizos</span>
       <div class="flag-country">
-        <img src="./Media/USA.png" class="image">
-        <img src="./Media/mexico.png" class="image">
-        <img src="./Media/brazil.png" class="image">
+        <img src="./Media/Flags/USA.png" class="image">
+        <img src="./Media/Flags/mexico.png" class="image">
+        <img src="./Media/Flags/brazil.png" class="image">
       </div>
       <div class="changing-text">
         <span>We are: </span>
