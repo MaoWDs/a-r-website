@@ -204,7 +204,9 @@ header{
 }
 
 
-/* ------ Footer Section ------ */
+/* ------------------------------------ */
+/* ------ FOOTER SECTION ------ */
+/* ------------------------------------ */
 .footer{
     width: auto;
     background-size: cover;
@@ -222,23 +224,26 @@ header{
 .footer_item{
     display: flex; /*se ajustan los items al tamaño de la pagina*/
     flex-direction: column; /*ponemos los items del footer en columnas*/
-    padding: 10px; /*distancia entre columnas*/
     margin-left: 25px;
     margin-right: 25px;
 }
+.footer_logo{
+    display: flex;
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+}
 .footer_item .footer_logo img{
     width: 75px; /*tamaño de imagen*/
-    margin-left: 130px;
 }
 .footer_item .footer_terms{
     max-width: 350px; /*tamaño max de los terms*/
-    margin-top: 20px; /*distancia entre logo y terms*/
+    margin-top: 10px; /*distancia entre logo y terms*/
     font-weight: 500; /*letra de terms mas gruesa*/
     color: #949494; /*color gris de texto terms*/
     font-size: 13px;
 }
 .footer_item h2{
-    margin-bottom: 13px; /*separamos encabezado de opciones*/
+    margin-bottom: 10px; /*separamos encabezado de opciones*/
 }
 .footer_item h2 a{
     text-decoration: none; /*quitamos decoracion de link al texto de encabezados*/
@@ -247,7 +252,7 @@ header{
     font-size: 15px;
 }
 .footer_item a{
-    margin-top: 7px; /*margen a las opciones de footer*/
+    margin-top: 5px; /*margen a las opciones de footer*/
     text-decoration: none;/*quitamos decoracion de link*/
     color: #949494;
     font-weight: 500; /*mas grueso*/
@@ -1002,17 +1007,14 @@ header{
             color:  #012060;
             font-size: 25px;
         }
-
         .formBox{
             display: flex;
             flex-direction: column;
         }
-
         .formBox .row50{
             display: flex;
             gap: 20px;
         }
-        
         .inputBox{
             display: flex;
             flex-direction: column;
@@ -1025,14 +1027,19 @@ header{
                 margin-bottom: 5px;
                 font-weight: 500;
             }
-
             input{
                 padding: 10px;
                 font-size: 1em;
                 outline: none;
                 border: 1px solid #012060;
             }
-
+            select{
+                height: 100%;
+                padding: 10px;
+                font-size: 1em;
+                outline: none;
+                border: 1px solid #012060;
+            }
             textarea{
                 padding: 10px;
                 font-size: 1em;
@@ -1046,7 +1053,6 @@ header{
         .formBox .row100 .inputBox{
             width: 100%;
         }
-
         .formBox .row100 .inputBox input{
             background: #012060;
             color: #FFF;
@@ -1058,26 +1064,33 @@ header{
             padding: 14px 15px;
             width: 100%;
         }
-
+        .formBox .row150 .inputBox{
+            width: 100%;
+        }
+        .formBox .row150 .inputBox input{
+            padding: 10px;
+            font-size: 1em;
+            outline: none;
+            border: 1px solid #012060;
+        }
         .infoSelect {
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
             align-items: start;
-          }
-          .region_container{
+        }
+        .region_container{
             display: flex;
             flex-direction: column;
-          }
-          .region_container img {
+        }
+        .region_container img {
             top: 20px;
             width: 40px; /* ajusta el tamaño de la imagen */
             height: 30px;
             margin: 0px;
             position: relative; /* posición relativa para que se pueda superponer el checkbox */
-          }
-          
-          .region_container .contactInfoCheck{
+        }
+        .region_container .contactInfoCheck{
             width: 60px; /* ajusta el tamaño de la imagen */
             height: 60px;
             position: relative; /* posición absoluta para que se superponga a la imagen */
@@ -1085,64 +1098,52 @@ header{
             top: -16px; /* ajusta la posición del checkbox a la parte superior de la imagen */
             opacity: 0;
             cursor: pointer;
-            }
-          
-        
+        }
         .infoBox{
             position: absolute;
             display: flex;
             flex-direction: column;
         }
-
-            .contactMX, .contactUSA, .contactBR {
-                display: none;
-                position: relative;
-                top: -200px;
-                left: 150px;
-            }
+        .contactMX, .contactUSA, .contactBR {
+            display: none;
+            position: relative;
+            top: -240px;
+            left: 150px;
+        }
         .infoBox h2{
             margin-left: 0px;
             color: #012060;
         }
-
         .infoBox ul{
             margin-left: 0px;
             margin-top: 20px;
         }
-
         .infoBox li{
             list-style: none;
             padding-top: 10px;
         }
-
         .phoneInfo{
             position: relative;
             margin-top: 15px;
             margin-left: 0px;
         }
-
         .infoBox i{
             color: #012060;
         }
     }
-    
     #mapid { 
-        height: 400px;
+        height: 500px;
         width: 100%;
     }
-
     .inputBox ::placeholder{
         color: #999;
     }
-
     .form{
         grid-area: form;
     }
-
     .info{
         grid-area: info;
     }
-
     .map{
         grid-area: map;
     }   
@@ -1508,7 +1509,6 @@ header{
     }
     .infoSelect {
         flex-direction: column !important;
-        
     }
     .region_container{
         display: flex;
